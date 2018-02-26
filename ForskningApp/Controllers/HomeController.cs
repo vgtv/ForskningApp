@@ -94,7 +94,7 @@ namespace ForskningApp.Controllers
                 "while", "whither", "who", "whoever", "whole", "whom", "who's", "whose", "why", "why's",
                 "will", "willing", "wish", "with", "within", "without", "wonder", "won't", "would",
                 "wouldn't", "yes", "yet", "you", "you'd", "you'll", "your", "you're", "yours", "yourself",
-                "yourselves", "you've", "zero", "based"
+                "yourselves", "you've", "zero", "based", "base"
             };
         }
 
