@@ -1,8 +1,8 @@
-﻿namespace ForskningApp.Models
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace ForskningApp.Models
+{
     public class Person
     {
         public string fornavn { get; set; }
