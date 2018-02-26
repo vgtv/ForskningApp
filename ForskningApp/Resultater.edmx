@@ -1,0 +1,1319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aarliginstitusjonsranking2007">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2008">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2009">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2010">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2011">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2012">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2013">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2014">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2015">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2016">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2007">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2008">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2009">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2010">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2011">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2012">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2013">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2014">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2015">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="aarligranking2016">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rankPoeng" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="int" />
+          <Property Name="publikasjoner" Type="float" />
+          <Property Name="rankKroner" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" Nullable="false" />
+          <Property Name="niva2" Type="int" />
+          <Property Name="rankniva2" Type="int" />
+        </EntityType>
+        <EntityType Name="eierskap">
+          <Key>
+            <PropertyRef Name="eierskapID" />
+          </Key>
+          <Property Name="eierskapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="forskningsID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="institusjonsID" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="poengNytt" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="forfattere">
+          <Key>
+            <PropertyRef Name="forfatterID" />
+          </Key>
+          <Property Name="forfatterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cristinID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="forskningsID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="institusjonsID" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="poengNytt" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="forskning">
+          <Key>
+            <PropertyRef Name="resultatID" />
+          </Key>
+          <Property Name="resultatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cristinID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tittel" Type="varchar" MaxLength="600" Nullable="false" />
+          <Property Name="aar" Type="varchar" MaxLength="4" />
+          <Property Name="kvalitet" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="hovedkategori" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="underkategori" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\AN2N\SOURCE\REPOS\FORSKININGAPPLIKASJON\FORSKININGAPPLIKASJON\APP_DATA\DB.MDF.forskningsresultater.institutter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="institutter">
+          <Key>
+            <PropertyRef Name="cristinID" />
+            <PropertyRef Name="navn" />
+            <PropertyRef Name="akronym" />
+            <PropertyRef Name="land" />
+          </Key>
+          <Property Name="cristinID" Type="int" Nullable="false" />
+          <Property Name="navn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="akronym" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="land" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fornavn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="etternavn" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rank">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rank" Type="int" Nullable="false" />
+          <Property Name="rankNytt" Type="int" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="poengNytt" Type="float" Nullable="false" />
+          <Property Name="kroner" Type="float" />
+          <Property Name="publikasjoner" Type="int" />
+          <Property Name="niva2" Type="int" />
+        </EntityType>
+        <EntityType Name="rankinstitusjon">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="poeng" Type="float" Nullable="false" />
+          <Property Name="poengNytt" Type="float" Nullable="false" />
+          <Property Name="rank" Type="int" Nullable="false" />
+          <Property Name="rankNytt" Type="int" Nullable="false" />
+          <Property Name="kroner" Type="float" />
+          <Property Name="publikasjoner" Type="int" />
+          <Property Name="niva2" Type="int" />
+        </EntityType>
+        <EntityType Name="tidsskrift">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="navn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="issn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="kvalitet" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tilhorighet">
+          <Key>
+            <PropertyRef Name="tilhorighetsID" />
+          </Key>
+          <Property Name="tilhorighetsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cristinID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="institusjon" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="institutt" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="posisjon" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="aktiv" Type="smallint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'eierskap$EierskapInstitusjonFN' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="eierskap$EierskapInstitusjonFN" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="forfattere$ForfatterInstitusjonFN" />-->
+        <Association Name="rank$FNcristinID">
+          <End Role="person" Type="Self.person" Multiplicity="1" />
+          <End Role="rank" Type="Self.rank" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="cristinID" />
+            </Principal>
+            <Dependent Role="rank">
+              <PropertyRef Name="cristinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbModelStoreContainer">
+          <EntitySet Name="aarliginstitusjonsranking2007" EntityType="Self.aarliginstitusjonsranking2007" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2008" EntityType="Self.aarliginstitusjonsranking2008" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2009" EntityType="Self.aarliginstitusjonsranking2009" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2010" EntityType="Self.aarliginstitusjonsranking2010" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2011" EntityType="Self.aarliginstitusjonsranking2011" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2012" EntityType="Self.aarliginstitusjonsranking2012" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2013" EntityType="Self.aarliginstitusjonsranking2013" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2014" EntityType="Self.aarliginstitusjonsranking2014" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2015" EntityType="Self.aarliginstitusjonsranking2015" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarliginstitusjonsranking2016" EntityType="Self.aarliginstitusjonsranking2016" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2007" EntityType="Self.aarligranking2007" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2008" EntityType="Self.aarligranking2008" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2009" EntityType="Self.aarligranking2009" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2010" EntityType="Self.aarligranking2010" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2011" EntityType="Self.aarligranking2011" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2012" EntityType="Self.aarligranking2012" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2013" EntityType="Self.aarligranking2013" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2014" EntityType="Self.aarligranking2014" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2015" EntityType="Self.aarligranking2015" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="aarligranking2016" EntityType="Self.aarligranking2016" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="eierskap" EntityType="Self.eierskap" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="forfattere" EntityType="Self.forfattere" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="forskning" EntityType="Self.forskning" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="person" EntityType="Self.person" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="rank" EntityType="Self.rank" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="rankinstitusjon" EntityType="Self.rankinstitusjon" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="institutter" EntityType="Self.institutter" store:Type="Tables" store:Schema="forskningsresultater">
+            <DefiningQuery>SELECT 
+    [institutter].[cristinID] AS [cristinID], 
+    [institutter].[navn] AS [navn], 
+    [institutter].[akronym] AS [akronym], 
+    [institutter].[land] AS [land]
+    FROM [forskningsresultater].[institutter] AS [institutter]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="rank$FNcristinID" Association="Self.rank$FNcristinID">
+            <End Role="person" EntitySet="person" />
+            <End Role="rank" EntitySet="rank" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aarliginstitusjonsranking2007">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2008">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2009">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2010">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2011">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2012">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2013">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2014">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2015">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarliginstitusjonsranking2016">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2007">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2008">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2009">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2010">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2011">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2012">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2013">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2014">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2015">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="aarligranking2016">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rankPoeng" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="rankPublikasjoner" Type="Int32" />
+          <Property Name="publikasjoner" Type="Double" />
+          <Property Name="rankKroner" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" Nullable="false" />
+          <Property Name="niva2" Type="Int32" />
+          <Property Name="rankniva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="eierskap">
+          <Key>
+            <PropertyRef Name="eierskapID" />
+          </Key>
+          <Property Name="eierskapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="forskningsID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="institusjonsID" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="poengNytt" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="forfattere">
+          <Key>
+            <PropertyRef Name="forfatterID" />
+          </Key>
+          <Property Name="forfatterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cristinID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="forskningsID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="institusjonsID" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="poengNytt" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="forskning">
+          <Key>
+            <PropertyRef Name="resultatID" />
+          </Key>
+          <Property Name="resultatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cristinID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tittel" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aar" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="kvalitet" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hovedkategori" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="underkategori" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fornavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="etternavn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="rank" Relationship="Self.rank_FNcristinID" FromRole="person" ToRole="rank" />
+        </EntityType>
+        <EntityType Name="rank">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rank1" Type="Int32" Nullable="false" />
+          <Property Name="rankNytt" Type="Int32" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="poengNytt" Type="Double" Nullable="false" />
+          <Property Name="kroner" Type="Double" />
+          <Property Name="publikasjoner" Type="Int32" />
+          <Property Name="niva2" Type="Int32" />
+          <NavigationProperty Name="person" Relationship="Self.rank_FNcristinID" FromRole="rank" ToRole="person" />
+        </EntityType>
+        <EntityType Name="rankinstitusjon">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poeng" Type="Double" Nullable="false" />
+          <Property Name="poengNytt" Type="Double" Nullable="false" />
+          <Property Name="rank" Type="Int32" Nullable="false" />
+          <Property Name="rankNytt" Type="Int32" Nullable="false" />
+          <Property Name="kroner" Type="Double" />
+          <Property Name="publikasjoner" Type="Int32" />
+          <Property Name="niva2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tidsskrift">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="navn" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issn" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kvalitet" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tilhorighet">
+          <Key>
+            <PropertyRef Name="tilhorighetsID" />
+          </Key>
+          <Property Name="tilhorighetsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cristinID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="institusjon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="institutt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="posisjon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktiv" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="institutter">
+          <Key>
+            <PropertyRef Name="cristinID" />
+            <PropertyRef Name="navn" />
+            <PropertyRef Name="akronym" />
+            <PropertyRef Name="land" />
+          </Key>
+          <Property Name="cristinID" Type="Int32" Nullable="false" />
+          <Property Name="navn" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="akronym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="land" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="rank_FNcristinID">
+          <End Role="person" Type="Self.person" Multiplicity="1" />
+          <End Role="rank" Type="Self.rank" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="cristinID" />
+            </Principal>
+            <Dependent Role="rank">
+              <PropertyRef Name="cristinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aarliginstitusjonsranking2007" EntityType="Self.aarliginstitusjonsranking2007" />
+          <EntitySet Name="aarliginstitusjonsranking2008" EntityType="Self.aarliginstitusjonsranking2008" />
+          <EntitySet Name="aarliginstitusjonsranking2009" EntityType="Self.aarliginstitusjonsranking2009" />
+          <EntitySet Name="aarliginstitusjonsranking2010" EntityType="Self.aarliginstitusjonsranking2010" />
+          <EntitySet Name="aarliginstitusjonsranking2011" EntityType="Self.aarliginstitusjonsranking2011" />
+          <EntitySet Name="aarliginstitusjonsranking2012" EntityType="Self.aarliginstitusjonsranking2012" />
+          <EntitySet Name="aarliginstitusjonsranking2013" EntityType="Self.aarliginstitusjonsranking2013" />
+          <EntitySet Name="aarliginstitusjonsranking2014" EntityType="Self.aarliginstitusjonsranking2014" />
+          <EntitySet Name="aarliginstitusjonsranking2015" EntityType="Self.aarliginstitusjonsranking2015" />
+          <EntitySet Name="aarliginstitusjonsranking2016" EntityType="Self.aarliginstitusjonsranking2016" />
+          <EntitySet Name="aarligranking2007" EntityType="Self.aarligranking2007" />
+          <EntitySet Name="aarligranking2008" EntityType="Self.aarligranking2008" />
+          <EntitySet Name="aarligranking2009" EntityType="Self.aarligranking2009" />
+          <EntitySet Name="aarligranking2010" EntityType="Self.aarligranking2010" />
+          <EntitySet Name="aarligranking2011" EntityType="Self.aarligranking2011" />
+          <EntitySet Name="aarligranking2012" EntityType="Self.aarligranking2012" />
+          <EntitySet Name="aarligranking2013" EntityType="Self.aarligranking2013" />
+          <EntitySet Name="aarligranking2014" EntityType="Self.aarligranking2014" />
+          <EntitySet Name="aarligranking2015" EntityType="Self.aarligranking2015" />
+          <EntitySet Name="aarligranking2016" EntityType="Self.aarligranking2016" />
+          <EntitySet Name="eierskap" EntityType="Self.eierskap" />
+          <EntitySet Name="forfattere" EntityType="Self.forfattere" />
+          <EntitySet Name="forskning" EntityType="Self.forskning" />
+          <EntitySet Name="person" EntityType="Self.person" />
+          <EntitySet Name="rank" EntityType="Self.rank" />
+          <EntitySet Name="rankinstitusjon" EntityType="Self.rankinstitusjon" />
+          <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" />
+          <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" />
+          <EntitySet Name="institutter" EntityType="Self.institutter" />
+          <AssociationSet Name="rank_FNcristinID" Association="Self.rank_FNcristinID">
+            <End Role="person" EntitySet="person" />
+            <End Role="rank" EntitySet="rank" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities">
+          <EntitySetMapping Name="aarliginstitusjonsranking2007">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2007">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2007">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2008">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2008">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2008">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2009">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2009">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2009">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2010">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2010">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2010">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2011">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2011">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2011">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2012">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2012">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2012">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2013">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2013">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2013">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2014">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2014">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2014">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2015">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2015">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2015">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarliginstitusjonsranking2016">
+            <EntityTypeMapping TypeName="dbModel.aarliginstitusjonsranking2016">
+              <MappingFragment StoreEntitySet="aarliginstitusjonsranking2016">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2007">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2007">
+              <MappingFragment StoreEntitySet="aarligranking2007">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2008">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2008">
+              <MappingFragment StoreEntitySet="aarligranking2008">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2009">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2009">
+              <MappingFragment StoreEntitySet="aarligranking2009">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2010">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2010">
+              <MappingFragment StoreEntitySet="aarligranking2010">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2011">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2011">
+              <MappingFragment StoreEntitySet="aarligranking2011">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2012">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2012">
+              <MappingFragment StoreEntitySet="aarligranking2012">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2013">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2013">
+              <MappingFragment StoreEntitySet="aarligranking2013">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2014">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2014">
+              <MappingFragment StoreEntitySet="aarligranking2014">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2015">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2015">
+              <MappingFragment StoreEntitySet="aarligranking2015">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aarligranking2016">
+            <EntityTypeMapping TypeName="dbModel.aarligranking2016">
+              <MappingFragment StoreEntitySet="aarligranking2016">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rankPoeng" ColumnName="rankPoeng" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="rankPublikasjoner" ColumnName="rankPublikasjoner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="rankKroner" ColumnName="rankKroner" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+                <ScalarProperty Name="rankniva2" ColumnName="rankniva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eierskap">
+            <EntityTypeMapping TypeName="dbModel.eierskap">
+              <MappingFragment StoreEntitySet="eierskap">
+                <ScalarProperty Name="eierskapID" ColumnName="eierskapID" />
+                <ScalarProperty Name="forskningsID" ColumnName="forskningsID" />
+                <ScalarProperty Name="institusjonsID" ColumnName="institusjonsID" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="poengNytt" ColumnName="poengNytt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="forfattere">
+            <EntityTypeMapping TypeName="dbModel.forfattere">
+              <MappingFragment StoreEntitySet="forfattere">
+                <ScalarProperty Name="forfatterID" ColumnName="forfatterID" />
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="forskningsID" ColumnName="forskningsID" />
+                <ScalarProperty Name="institusjonsID" ColumnName="institusjonsID" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="poengNytt" ColumnName="poengNytt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="forskning">
+            <EntityTypeMapping TypeName="dbModel.forskning">
+              <MappingFragment StoreEntitySet="forskning">
+                <ScalarProperty Name="resultatID" ColumnName="resultatID" />
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="tittel" ColumnName="tittel" />
+                <ScalarProperty Name="aar" ColumnName="aar" />
+                <ScalarProperty Name="kvalitet" ColumnName="kvalitet" />
+                <ScalarProperty Name="hovedkategori" ColumnName="hovedkategori" />
+                <ScalarProperty Name="underkategori" ColumnName="underkategori" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="person">
+            <EntityTypeMapping TypeName="dbModel.person">
+              <MappingFragment StoreEntitySet="person">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="fornavn" ColumnName="fornavn" />
+                <ScalarProperty Name="etternavn" ColumnName="etternavn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rank">
+            <EntityTypeMapping TypeName="dbModel.rank">
+              <MappingFragment StoreEntitySet="rank">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="rank1" ColumnName="rank" />
+                <ScalarProperty Name="rankNytt" ColumnName="rankNytt" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="poengNytt" ColumnName="poengNytt" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rankinstitusjon">
+            <EntityTypeMapping TypeName="dbModel.rankinstitusjon">
+              <MappingFragment StoreEntitySet="rankinstitusjon">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="poeng" ColumnName="poeng" />
+                <ScalarProperty Name="poengNytt" ColumnName="poengNytt" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="rankNytt" ColumnName="rankNytt" />
+                <ScalarProperty Name="kroner" ColumnName="kroner" />
+                <ScalarProperty Name="publikasjoner" ColumnName="publikasjoner" />
+                <ScalarProperty Name="niva2" ColumnName="niva2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tidsskrift">
+            <EntityTypeMapping TypeName="dbModel.tidsskrift">
+              <MappingFragment StoreEntitySet="tidsskrift">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="navn" ColumnName="navn" />
+                <ScalarProperty Name="issn" ColumnName="issn" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="kvalitet" ColumnName="kvalitet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tilhorighet">
+            <EntityTypeMapping TypeName="dbModel.tilhorighet">
+              <MappingFragment StoreEntitySet="tilhorighet">
+                <ScalarProperty Name="tilhorighetsID" ColumnName="tilhorighetsID" />
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="institusjon" ColumnName="institusjon" />
+                <ScalarProperty Name="institutt" ColumnName="institutt" />
+                <ScalarProperty Name="posisjon" ColumnName="posisjon" />
+                <ScalarProperty Name="aktiv" ColumnName="aktiv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="institutter">
+            <EntityTypeMapping TypeName="dbModel.institutter">
+              <MappingFragment StoreEntitySet="institutter">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="navn" ColumnName="navn" />
+                <ScalarProperty Name="akronym" ColumnName="akronym" />
+                <ScalarProperty Name="land" ColumnName="land" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
