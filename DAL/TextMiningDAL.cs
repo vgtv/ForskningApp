@@ -25,6 +25,11 @@ namespace DAL
 
         public List<string> getCristinID()
         {
+            using(var db = new dbEntities())
+            {
+                return db.person.Select(p => p.cristinID).ToList();
+            }
+
             throw new NotImplementedException();
         }
 
