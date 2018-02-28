@@ -35,7 +35,7 @@ namespace DAL
 
         List<string> getTopCloudWords();
 
-        bool addStopsWords();
+        bool addStopsWords(List<string> stopWords);
 
         // (
         // 1 (1 (frode) 2 (er) 3(best)

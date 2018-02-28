@@ -8,7 +8,7 @@ namespace DAL
 {
     class TextMiningDAL : ITextMiningDAL
     {
-        public bool addStopsWords()
+        public bool addStopsWords(List<string> stopWords)
         {
             throw new NotImplementedException();
         }

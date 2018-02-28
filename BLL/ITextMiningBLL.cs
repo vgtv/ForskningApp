@@ -29,7 +29,7 @@ namespace BLL
 
         List<string> getTopCloudWords();
 
-        bool addStopsWords();
+        bool addStopsWords(List<string> stopWords);
     }
 }
 

@@ -8,7 +8,7 @@ namespace BLL
 {
     class TextMiningBLL : ITextMiningBLL
     {
-        public bool addStopsWords()
+        public bool addStopsWords(List<string> stopWords)
         {
             throw new NotImplementedException();
         }
