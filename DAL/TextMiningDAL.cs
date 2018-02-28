@@ -8,22 +8,17 @@ namespace DAL
 {
     class TextMiningDAL : ITextMiningDAL
     {
+        public bool addStopsWords()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool checkLanguage(List<string> title)
         {
             throw new NotImplementedException();
         }
 
         public bool checkStopWords(List<string> tokenizedTitle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool createWordCloudTable()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool deleteWordCloudTable()
         {
             throw new NotImplementedException();
         }

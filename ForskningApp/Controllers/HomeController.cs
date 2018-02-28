@@ -29,8 +29,6 @@ namespace ForskningApp.Controllers
             }
             base.Dispose(disposing);
         }
-
-
         public List<string> getStopWords()
         {
             return new List<string>()
