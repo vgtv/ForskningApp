@@ -27,15 +27,18 @@ namespace DAL
         {
             using(var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).ToList();
+                return db.person.Select(p => p.cristinID).Take(5).ToList();
             }
-
-            throw new NotImplementedException();
+            // Take(5) tar kun 5 stykker til å starte med       
         }
 
-        public List<string> getTitles(string cristinID)
+        public List<string> getTitles(string inCristinID)
         {
-            throw new NotImplementedException();
+            using(var db = new dbEntities())
+            {
+                return db.forfattere.Where(f => f.cristinID == inCristinID).
+                    Select(f => (db.forskning.Where(fo => fo.cristinID == f.forskningsID).Select(s => s.tittel).FirstOrDefault())).ToList();
+            }
         }
 
         public List<string> getTopCloudWords()
@@ -70,6 +73,7 @@ namespace DAL
 
         public List<List<string>> tokenizeTitles(List<string> titles)
         {
+
             throw new NotImplementedException();
         }
     }
