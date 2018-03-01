@@ -8,7 +8,7 @@ namespace DAL
 {
     class TextMiningDAL : ITextMiningDAL
     {
-        public bool addStopsWords(List<string> stopWords)
+        public bool addStopsWordsDB(List<string> stopWords)
         {
             throw new NotImplementedException();
         }
@@ -56,7 +56,17 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public bool removeStopsWordsDB(List<string> stopWords)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool savePersonWordCloud(List<string> groupedTitles)
         {
             throw new NotImplementedException();
         }
@@ -74,6 +84,11 @@ namespace DAL
         public List<List<string>> tokenizeTitles(List<string> titles)
         {
 
+            throw new NotImplementedException();
+        }
+
+        public bool updateWordCloud(List<string> groupedTitles)
+        {
             throw new NotImplementedException();
         }
     }

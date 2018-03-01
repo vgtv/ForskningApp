@@ -107,20 +107,20 @@
     <Compile Include="aarligranking2016.cs">
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
-    <Compile Include="eierskap.cs">
-      <DependentUpon>Resultater.tt</DependentUpon>
-    </Compile>
-    <Compile Include="forfattere.cs">
-      <DependentUpon>Resultater.tt</DependentUpon>
-    </Compile>
-    <Compile Include="forskning.cs">
+    <Compile Include="authors.cs">
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
     <Compile Include="ForskningDAL.cs" />
-    <Compile Include="institutter.cs">
+    <Compile Include="institution.cs">
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
     <Compile Include="ITextMiningDAL.cs" />
+    <Compile Include="journal.cs">
+      <DependentUpon>Resultater.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ownership.cs">
+      <DependentUpon>Resultater.tt</DependentUpon>
+    </Compile>
     <Compile Include="person.cs">
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
@@ -129,6 +129,9 @@
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
     <Compile Include="rankinstitusjon.cs">
+      <DependentUpon>Resultater.tt</DependentUpon>
+    </Compile>
+    <Compile Include="research.cs">
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
     <Compile Include="Resultater.Context.cs">
@@ -147,9 +150,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="TextMiningDAL.cs" />
-    <Compile Include="tidsskrift.cs">
-      <DependentUpon>Resultater.tt</DependentUpon>
-    </Compile>
     <Compile Include="tilhorighet.cs">
       <DependentUpon>Resultater.tt</DependentUpon>
     </Compile>
@@ -182,6 +182,9 @@
       <DependentUpon>Resultater.edmx</DependentUpon>
       <LastGenOutput>Resultater.Context.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

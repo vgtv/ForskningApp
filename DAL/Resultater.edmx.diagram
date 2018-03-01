@@ -25,15 +25,15 @@
         <EntityTypeShape EntityType="dbModel.aarligranking2014" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.aarligranking2015" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.aarligranking2016" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.eierskap" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.forfattere" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.forskning" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.ownership" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.authors" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.research" Width="1.5" PointX="15.375" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.person" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.rank" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.rankinstitusjon" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.tidsskrift" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.journal" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.tilhorighet" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.institutter" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.institution" Width="1.5" PointX="13.375" PointY="14.75" IsExpanded="true" />
         <AssociationConnector Association="dbModel.rank_FNcristinID" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

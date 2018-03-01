@@ -16,7 +16,7 @@ namespace DAL
     public partial class dbEntities : DbContext
     {
         public dbEntities()
-            : base("name=dbEntities")   
+            : base("name=dbEntities")
         {
         }
     
@@ -45,14 +45,14 @@ namespace DAL
         public virtual DbSet<aarligranking2014> aarligranking2014 { get; set; }
         public virtual DbSet<aarligranking2015> aarligranking2015 { get; set; }
         public virtual DbSet<aarligranking2016> aarligranking2016 { get; set; }
-        public virtual DbSet<eierskap> eierskap { get; set; }
-        public virtual DbSet<forfattere> forfattere { get; set; }
-        public virtual DbSet<forskning> forskning { get; set; }
+        public virtual DbSet<ownership> eierskap { get; set; }
+        public virtual DbSet<authors> forfattere { get; set; }
+        public virtual DbSet<research> forskning { get; set; }
         public virtual DbSet<person> person { get; set; }
         public virtual DbSet<rank> rank { get; set; }
         public virtual DbSet<rankinstitusjon> rankinstitusjon { get; set; }
-        public virtual DbSet<tidsskrift> tidsskrift { get; set; }
+        public virtual DbSet<journal> tidsskrift { get; set; }
         public virtual DbSet<tilhorighet> tilhorighet { get; set; }
-        public virtual DbSet<institutter> institutter { get; set; }
+        public virtual DbSet<institution> institutter { get; set; }
     }
 }

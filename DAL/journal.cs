@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class tidsskrift
+    public partial class journal
     {
         public string cristinID { get; set; }
         public string navn { get; set; }

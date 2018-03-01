@@ -17,7 +17,9 @@ namespace DAL
         List<List<string>> removeStopWords(List<List<string>> tokenizedTitles);
         bool checkStopWords(List<string> tokenizedTitle);
 
-        // Debug.WriteLine( slettet tittel )
+        /*
+         * Husk: Debug.WriteLine(slettet tittel)         
+         */
         List<List<string>> removeLanguages(List<List<string>> tokenizedTitles);
         bool checkLanguage(List<string> title);
 
@@ -26,21 +28,21 @@ namespace DAL
         List<string> groupTitles(List<List<string>> tokenizedTitles);
 
         /*
-         * 1. Skal lagre alle nye ord i CloudWord tabellen og oppdatere antall
+         * Skal lagre alle nye ord i ordsky tabellen og oppdatere antall
          * Eksempel: key | word | count
-         * 2. Skal lage en ny kolonne med personen sine CloudWords og antall
-         * Eksempel: cristinID | key1 | antall1 | key2 | antall2 | key3 | antall3
          */
-        bool saveWordCloud(List<string> groupedTitles);
+        bool updateWordCloud(List<string> groupedTitles);
+
+        /*
+         * Skal lage en nye kolonner med personen sine ord og antall
+         * Eksempel: cristinID | key1 | count1 | key2 | count2 | key3 | count3
+         */
+        bool savePersonWordCloud(List<string> groupedTitles);
 
         List<string> getTopCloudWords();
 
-        bool addStopsWords(List<string> stopWords);
+        bool addStopsWordsDB(List<string> stopWords);
 
-        // (
-        // 1 (1 (frode) 2 (er) 3(best)
-        // 2 (1 (ok) 2 (ja) 3 (nei))
-        // 3 ( 1 () 2 () 3 ())
-        // )
+        bool removeStopsWordsDB(List<string> stopWords);
     }
 }

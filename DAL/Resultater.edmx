@@ -732,7 +732,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="niva2" Type="Int32" />
           <Property Name="rankniva2" Type="Int32" />
         </EntityType>
-        <EntityType Name="eierskap">
+        <EntityType Name="ownership">
           <Key>
             <PropertyRef Name="eierskapID" />
           </Key>
@@ -742,7 +742,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="poeng" Type="Double" Nullable="false" />
           <Property Name="poengNytt" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="forfattere">
+        <EntityType Name="authors">
           <Key>
             <PropertyRef Name="forfatterID" />
           </Key>
@@ -753,7 +753,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="poeng" Type="Double" Nullable="false" />
           <Property Name="poengNytt" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="forskning">
+        <EntityType Name="research">
           <Key>
             <PropertyRef Name="resultatID" />
           </Key>
@@ -801,7 +801,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="publikasjoner" Type="Int32" />
           <Property Name="niva2" Type="Int32" />
         </EntityType>
-        <EntityType Name="tidsskrift">
+        <EntityType Name="journal">
           <Key>
             <PropertyRef Name="cristinID" />
           </Key>
@@ -822,7 +822,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="posisjon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aktiv" Type="Int16" Nullable="false" />
         </EntityType>
-        <EntityType Name="institutter">
+        <EntityType Name="institution">
           <Key>
             <PropertyRef Name="cristinID" />
             <PropertyRef Name="navn" />
@@ -867,15 +867,15 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <EntitySet Name="aarligranking2014" EntityType="Self.aarligranking2014" />
           <EntitySet Name="aarligranking2015" EntityType="Self.aarligranking2015" />
           <EntitySet Name="aarligranking2016" EntityType="Self.aarligranking2016" />
-          <EntitySet Name="eierskap" EntityType="Self.eierskap" />
-          <EntitySet Name="forfattere" EntityType="Self.forfattere" />
-          <EntitySet Name="forskning" EntityType="Self.forskning" />
+          <EntitySet Name="eierskap" EntityType="dbModel.ownership" />
+          <EntitySet Name="forfattere" EntityType="dbModel.authors" />
+          <EntitySet Name="forskning" EntityType="dbModel.research" />
           <EntitySet Name="person" EntityType="Self.person" />
           <EntitySet Name="rank" EntityType="Self.rank" />
           <EntitySet Name="rankinstitusjon" EntityType="Self.rankinstitusjon" />
-          <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" />
+          <EntitySet Name="tidsskrift" EntityType="dbModel.journal" />
           <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" />
-          <EntitySet Name="institutter" EntityType="Self.institutter" />
+          <EntitySet Name="institutter" EntityType="dbModel.institution" />
           <AssociationSet Name="rank_FNcristinID" Association="Self.rank_FNcristinID">
             <End Role="person" EntitySet="person" />
             <End Role="rank" EntitySet="rank" />
@@ -1188,7 +1188,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="eierskap">
-            <EntityTypeMapping TypeName="dbModel.eierskap">
+            <EntityTypeMapping TypeName="dbModel.ownership">
               <MappingFragment StoreEntitySet="eierskap">
                 <ScalarProperty Name="eierskapID" ColumnName="eierskapID" />
                 <ScalarProperty Name="forskningsID" ColumnName="forskningsID" />
@@ -1199,7 +1199,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forfattere">
-            <EntityTypeMapping TypeName="dbModel.forfattere">
+            <EntityTypeMapping TypeName="dbModel.authors">
               <MappingFragment StoreEntitySet="forfattere">
                 <ScalarProperty Name="forfatterID" ColumnName="forfatterID" />
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
@@ -1211,7 +1211,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forskning">
-            <EntityTypeMapping TypeName="dbModel.forskning">
+            <EntityTypeMapping TypeName="dbModel.research">
               <MappingFragment StoreEntitySet="forskning">
                 <ScalarProperty Name="resultatID" ColumnName="resultatID" />
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
@@ -1261,7 +1261,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tidsskrift">
-            <EntityTypeMapping TypeName="dbModel.tidsskrift">
+            <EntityTypeMapping TypeName="dbModel.journal">
               <MappingFragment StoreEntitySet="tidsskrift">
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
                 <ScalarProperty Name="navn" ColumnName="navn" />
@@ -1284,7 +1284,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="institutter">
-            <EntityTypeMapping TypeName="dbModel.institutter">
+            <EntityTypeMapping TypeName="dbModel.institution">
               <MappingFragment StoreEntitySet="institutter">
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
                 <ScalarProperty Name="navn" ColumnName="navn" />
