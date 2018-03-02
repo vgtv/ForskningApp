@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,17 @@ namespace DAL
 {
     class TextMiningDAL : ITextMiningDAL
     {
-        // Tenker å lage en tabell for stop ordene, så vent med denne
-        // Tabellen må lages fra databasen (appdata/db.mdf), så greit at vi gjør det i plenum
-        public bool addStopsWordsDB(List<string> stopWords)
+        public void addStopsWordsDB(List<string> stopWords)
         {
-            throw new NotImplementedException();
+            using(var db = new dbEntities())
+            {
+                foreach(var newStopWord in stopWords)
+                {
+                   // Debug.WriteLine("Inserting stop word: " + newStopWord);
+                   // db.stopwords.Add(new stopwords { word = newStopWord });
+                }
+                db.SaveChanges();
+            }
         }
 
         public bool checkLanguage(List<string> title)
@@ -38,7 +45,7 @@ namespace DAL
         public List<string> getTitles(string inCristinID)
         {
             using(var db = new dbEntities())
-            {
+            {                
                 return db.authors.Where(f => f.cristinID == inCristinID)
                     .Select(f => (db.research.Where(fo => fo.cristinID == f.forskningsID)
                     .Select(s => s.tittel).FirstOrDefault().ToLower())).ToList();
@@ -61,10 +68,19 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        // Trenger tabellen
-        public bool removeStopsWordsDB(List<string> stopWords)
+        public void removeStopsWordsDB(List<string> stopWords)
         {
-            throw new NotImplementedException();
+            using (var db = new dbEntities())
+            {
+                foreach (var oldStopWord in stopWords)
+                {
+                   // Debug.WriteLine("Removing stop word: " + oldStopWord);
+
+                 //   var contains = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
+                 //   if(contains != null) { db.stopwords.Remove(contains); }
+                }
+                db.SaveChanges();
+            }
         }
      
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles)

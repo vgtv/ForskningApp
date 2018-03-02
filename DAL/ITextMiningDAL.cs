@@ -43,8 +43,8 @@ namespace DAL
 
         List<string> getTopCloudWords();
 
-        bool addStopsWordsDB(List<string> stopWords);
+        void addStopsWordsDB(List<string> stopWords);
 
-        bool removeStopsWordsDB(List<string> stopWords);
+        void removeStopsWordsDB(List<string> stopWords);
     }
 }
