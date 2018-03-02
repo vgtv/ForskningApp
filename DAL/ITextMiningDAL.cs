@@ -15,12 +15,14 @@ namespace DAL
         List<List<string>> tokenizeTitles(List<string> titles);
 
         List<List<string>> removeStopWords(List<List<string>> tokenizedTitles);
-        bool checkStopWords(List<string> tokenizedTitle);
+
+        bool checkStopWord(string token);
 
         /*
          * Husk: Debug.WriteLine(slettet tittel)         
          */
         List<List<string>> removeLanguages(List<List<string>> tokenizedTitles);
+
         bool checkLanguage(List<string> title);
 
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles);

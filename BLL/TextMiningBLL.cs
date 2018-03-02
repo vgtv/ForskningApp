@@ -18,7 +18,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool checkStopWords(List<string> tokenizedTitle)
+        public bool checkStopWord(string token)
         {
             throw new NotImplementedException();
         }
