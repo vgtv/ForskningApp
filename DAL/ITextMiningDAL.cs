@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetSpell.SpellChecker;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace DAL
 
         List<List<string>> removeLanguages(List<List<string>> tokenizedTitles);
 
-        bool checkLanguage(List<string> title);
+        bool checkLanguage(List<string> tokenizedTitle, Spelling spelling);
 
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles);
 

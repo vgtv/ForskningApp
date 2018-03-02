@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetSpell.SpellChecker;
+using NetSpell.SpellChecker.Dictionary;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,10 +24,31 @@ namespace DAL
             }
         }
 
-        public bool checkLanguage(List<string> title)
+        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
         {
-            throw new NotImplementedException();
+            WordDictionary oDict = new WordDictionary { DictionaryFile = "en-US.dic" };
+            oDict.Initialize();
+
+            var wordcount = 0;
+            foreach ( var words in tokenizedTitle)
+            {
+                if (spelling.TestWord(words))
+                {
+                    wordcount++;
+                }
+            }
+
+            if(wordcount > 5)
+            {
+                return true;   
+            }
+
+            else
+            {
+                return false; 
+            }
         }
+        
 
         public bool checkStopWord(string token)
         {
