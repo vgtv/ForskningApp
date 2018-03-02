@@ -18,9 +18,6 @@ namespace DAL
 
         bool checkStopWord(string token);
 
-        /*
-         * Husk: Debug.WriteLine(slettet tittel)         
-         */
         List<List<string>> removeLanguages(List<List<string>> tokenizedTitles);
 
         bool checkLanguage(List<string> title);

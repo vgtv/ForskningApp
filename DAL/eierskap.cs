@@ -12,10 +12,9 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class authors
+    public partial class eierskap
     {
-        public int forfatterID { get; set; }
-        public string cristinID { get; set; }
+        public int eierskapID { get; set; }
         public string forskningsID { get; set; }
         public int institusjonsID { get; set; }
         public double poeng { get; set; }

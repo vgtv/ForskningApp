@@ -15,8 +15,8 @@ namespace DAL
             {
                 foreach(var newStopWord in stopWords)
                 {
-                   // Debug.WriteLine("Inserting stop word: " + newStopWord);
-                   // db.stopwords.Add(new stopwords { word = newStopWord });
+                   //Debug.WriteLine("Inserting stop word: " + newStopWord);
+                   db.stopwords.Add(new stopwords { word = newStopWord });
                 }
                 db.SaveChanges();
             }
@@ -27,7 +27,6 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        // Vanskelig å lage før vi har en tabell
         public bool checkStopWord(string token)
         {
             throw new NotImplementedException();
@@ -46,7 +45,7 @@ namespace DAL
         {
             using(var db = new dbEntities())
             {                
-                return db.authors.Where(f => f.cristinID == inCristinID)
+                return db.author.Where(f => f.cristinID == inCristinID)
                     .Select(f => (db.research.Where(fo => fo.cristinID == f.forskningsID)
                     .Select(s => s.tittel).FirstOrDefault().ToLower())).ToList();
             }
@@ -63,6 +62,9 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        // Skal også finne ut hvem som blir slettet
+        // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
+        // Smart ideer: feks. filskriving?
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
         {
             throw new NotImplementedException();
@@ -74,10 +76,9 @@ namespace DAL
             {
                 foreach (var oldStopWord in stopWords)
                 {
-                   // Debug.WriteLine("Removing stop word: " + oldStopWord);
-
-                 //   var contains = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
-                 //   if(contains != null) { db.stopwords.Remove(contains); }
+                 // Debug.WriteLine("Removing stop word: " + oldStopWord);
+                 var containsStopWord = db.stopwords.Where(sw => sw.word == oldStopWord).FirstOrDefault();
+                 if(containsStopWord != null) { db.stopwords.Remove(containsStopWord); }
                 }
                 db.SaveChanges();
             }
@@ -85,6 +86,11 @@ namespace DAL
      
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles)
         {
+            tokenizedTitles.ForEach(title => title.ForEach(word => 
+            { if (checkStopWord(word)) title.Remove(word); }));
+
+            // To forskjellige måter å gjøre det på, øverste er mer kompakt (lambda)
+
             foreach(var title in tokenizedTitles)
             {
                 foreach(var word in title)
@@ -126,7 +132,7 @@ namespace DAL
             }
 
             // usikker på om split gjør nok, kanskje nødvendig
-            // med regex for å lete etter punktum, binnestrek osv.
+            // med regex for å lete etter punktum, binnestrek osv?
 
             return tokenizedTitles;
             throw new NotImplementedException();

@@ -12,14 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class research
+    public partial class tidsskrift
     {
-        public int resultatID { get; set; }
         public string cristinID { get; set; }
-        public string tittel { get; set; }
-        public string aar { get; set; }
+        public string navn { get; set; }
+        public string issn { get; set; }
+        public string url { get; set; }
         public string kvalitet { get; set; }
-        public string hovedkategori { get; set; }
-        public string underkategori { get; set; }
     }
 }
