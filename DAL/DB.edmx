@@ -318,14 +318,9 @@
           <Property Name="hovedkategori" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="underkategori" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\AN2N\SOURCE\REPOS\FORSKININGAPPLIKASJON\FORSKININGAPPLIKASJON\APP_DATA\DB.MDF.forskningsresultater.institutter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="institutter">
           <Key>
             <PropertyRef Name="cristinID" />
-            <PropertyRef Name="navn" />
-            <PropertyRef Name="akronym" />
-            <PropertyRef Name="land" />
           </Key>
           <Property Name="cristinID" Type="int" Nullable="false" />
           <Property Name="navn" Type="varchar" MaxLength="200" Nullable="false" />
@@ -366,6 +361,13 @@ warning 6002: The table/view 'C:\USERS\AN2N\SOURCE\REPOS\FORSKININGAPPLIKASJON\F
           <Property Name="publikasjoner" Type="int" />
           <Property Name="niva2" Type="int" />
         </EntityType>
+        <EntityType Name="stopwords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Word" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="tidsskrift">
           <Key>
             <PropertyRef Name="cristinID" />
@@ -387,12 +389,6 @@ warning 6002: The table/view 'C:\USERS\AN2N\SOURCE\REPOS\FORSKININGAPPLIKASJON\F
           <Property Name="posisjon" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="aktiv" Type="smallint" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'eierskap$EierskapInstitusjonFN' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="eierskap$EierskapInstitusjonFN" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="forfattere$ForfatterInstitusjonFN" />-->
         <Association Name="rank$FNcristinID">
           <End Role="person" Type="Self.person" Multiplicity="1" />
           <End Role="rank" Type="Self.rank" Multiplicity="0..1" />
@@ -429,19 +425,13 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <EntitySet Name="eierskap" EntityType="Self.eierskap" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="forfattere" EntityType="Self.forfattere" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="forskning" EntityType="Self.forskning" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="institutter" EntityType="Self.institutter" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="person" EntityType="Self.person" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="rank" EntityType="Self.rank" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="rankinstitusjon" EntityType="Self.rankinstitusjon" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="stopwords" EntityType="Self.stopwords" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" Schema="forskningsresultater" store:Type="Tables" />
-          <EntitySet Name="institutter" EntityType="Self.institutter" store:Type="Tables" store:Schema="forskningsresultater">
-            <DefiningQuery>SELECT 
-    [institutter].[cristinID] AS [cristinID], 
-    [institutter].[navn] AS [navn], 
-    [institutter].[akronym] AS [akronym], 
-    [institutter].[land] AS [land]
-    FROM [forskningsresultater].[institutter] AS [institutter]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="rank$FNcristinID" Association="Self.rank$FNcristinID">
             <End Role="person" EntitySet="person" />
             <End Role="rank" EntitySet="rank" />
@@ -732,7 +722,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="niva2" Type="Int32" />
           <Property Name="rankniva2" Type="Int32" />
         </EntityType>
-        <EntityType Name="ownership">
+        <EntityType Name="eierskap">
           <Key>
             <PropertyRef Name="eierskapID" />
           </Key>
@@ -742,7 +732,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="poeng" Type="Double" Nullable="false" />
           <Property Name="poengNytt" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="authors">
+        <EntityType Name="forfattere">
           <Key>
             <PropertyRef Name="forfatterID" />
           </Key>
@@ -753,7 +743,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="poeng" Type="Double" Nullable="false" />
           <Property Name="poengNytt" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="research">
+        <EntityType Name="forskning">
           <Key>
             <PropertyRef Name="resultatID" />
           </Key>
@@ -764,6 +754,15 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="kvalitet" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hovedkategori" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="underkategori" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="institutter">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="Int32" Nullable="false" />
+          <Property Name="navn" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="akronym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="land" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="person">
           <Key>
@@ -801,7 +800,14 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="publikasjoner" Type="Int32" />
           <Property Name="niva2" Type="Int32" />
         </EntityType>
-        <EntityType Name="journal">
+        <EntityType Name="stopwords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Word" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tidsskrift">
           <Key>
             <PropertyRef Name="cristinID" />
           </Key>
@@ -821,18 +827,6 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <Property Name="institutt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="posisjon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aktiv" Type="Int16" Nullable="false" />
-        </EntityType>
-        <EntityType Name="institution">
-          <Key>
-            <PropertyRef Name="cristinID" />
-            <PropertyRef Name="navn" />
-            <PropertyRef Name="akronym" />
-            <PropertyRef Name="land" />
-          </Key>
-          <Property Name="cristinID" Type="Int32" Nullable="false" />
-          <Property Name="navn" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="akronym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="land" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="rank_FNcristinID">
           <End Role="person" Type="Self.person" Multiplicity="1" />
@@ -867,15 +861,16 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
           <EntitySet Name="aarligranking2014" EntityType="Self.aarligranking2014" />
           <EntitySet Name="aarligranking2015" EntityType="Self.aarligranking2015" />
           <EntitySet Name="aarligranking2016" EntityType="Self.aarligranking2016" />
-          <EntitySet Name="eierskap" EntityType="dbModel.ownership" />
-          <EntitySet Name="forfattere" EntityType="dbModel.authors" />
-          <EntitySet Name="forskning" EntityType="dbModel.research" />
+          <EntitySet Name="eierskap" EntityType="Self.eierskap" />
+          <EntitySet Name="forfattere" EntityType="Self.forfattere" />
+          <EntitySet Name="forskning" EntityType="Self.forskning" />
+          <EntitySet Name="institutter" EntityType="Self.institutter" />
           <EntitySet Name="person" EntityType="Self.person" />
           <EntitySet Name="rank" EntityType="Self.rank" />
           <EntitySet Name="rankinstitusjon" EntityType="Self.rankinstitusjon" />
-          <EntitySet Name="tidsskrift" EntityType="dbModel.journal" />
+          <EntitySet Name="stopwords" EntityType="Self.stopwords" />
+          <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" />
           <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" />
-          <EntitySet Name="institutter" EntityType="dbModel.institution" />
           <AssociationSet Name="rank_FNcristinID" Association="Self.rank_FNcristinID">
             <End Role="person" EntitySet="person" />
             <End Role="rank" EntitySet="rank" />
@@ -1188,7 +1183,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="eierskap">
-            <EntityTypeMapping TypeName="dbModel.ownership">
+            <EntityTypeMapping TypeName="dbModel.eierskap">
               <MappingFragment StoreEntitySet="eierskap">
                 <ScalarProperty Name="eierskapID" ColumnName="eierskapID" />
                 <ScalarProperty Name="forskningsID" ColumnName="forskningsID" />
@@ -1199,7 +1194,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forfattere">
-            <EntityTypeMapping TypeName="dbModel.authors">
+            <EntityTypeMapping TypeName="dbModel.forfattere">
               <MappingFragment StoreEntitySet="forfattere">
                 <ScalarProperty Name="forfatterID" ColumnName="forfatterID" />
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
@@ -1211,7 +1206,7 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forskning">
-            <EntityTypeMapping TypeName="dbModel.research">
+            <EntityTypeMapping TypeName="dbModel.forskning">
               <MappingFragment StoreEntitySet="forskning">
                 <ScalarProperty Name="resultatID" ColumnName="resultatID" />
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
@@ -1220,6 +1215,16 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
                 <ScalarProperty Name="kvalitet" ColumnName="kvalitet" />
                 <ScalarProperty Name="hovedkategori" ColumnName="hovedkategori" />
                 <ScalarProperty Name="underkategori" ColumnName="underkategori" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="institutter">
+            <EntityTypeMapping TypeName="dbModel.institutter">
+              <MappingFragment StoreEntitySet="institutter">
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="navn" ColumnName="navn" />
+                <ScalarProperty Name="akronym" ColumnName="akronym" />
+                <ScalarProperty Name="land" ColumnName="land" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1260,8 +1265,16 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="stopwords">
+            <EntityTypeMapping TypeName="dbModel.stopwords">
+              <MappingFragment StoreEntitySet="stopwords">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Word" ColumnName="Word" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tidsskrift">
-            <EntityTypeMapping TypeName="dbModel.journal">
+            <EntityTypeMapping TypeName="dbModel.tidsskrift">
               <MappingFragment StoreEntitySet="tidsskrift">
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
                 <ScalarProperty Name="navn" ColumnName="navn" />
@@ -1280,16 +1293,6 @@ warning 6035: The relationship 'forfattere$ForfatterInstitusjonFN' has columns t
                 <ScalarProperty Name="institutt" ColumnName="institutt" />
                 <ScalarProperty Name="posisjon" ColumnName="posisjon" />
                 <ScalarProperty Name="aktiv" ColumnName="aktiv" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="institutter">
-            <EntityTypeMapping TypeName="dbModel.institution">
-              <MappingFragment StoreEntitySet="institutter">
-                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
-                <ScalarProperty Name="navn" ColumnName="navn" />
-                <ScalarProperty Name="akronym" ColumnName="akronym" />
-                <ScalarProperty Name="land" ColumnName="land" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

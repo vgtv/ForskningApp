@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class institution
+    public partial class institutter
     {
         public int cristinID { get; set; }
         public string navn { get; set; }

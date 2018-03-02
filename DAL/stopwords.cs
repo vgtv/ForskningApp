@@ -12,12 +12,9 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class journal
+    public partial class stopwords
     {
-        public string cristinID { get; set; }
-        public string navn { get; set; }
-        public string issn { get; set; }
-        public string url { get; set; }
-        public string kvalitet { get; set; }
+        public int Id { get; set; }
+        public string word { get; set; }
     }
 }
