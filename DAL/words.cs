@@ -12,19 +12,18 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class person
+    public partial class words
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public person()
+        public words()
         {
             this.wordsky = new HashSet<wordsky>();
         }
     
-        public string cristinID { get; set; }
-        public string fornavn { get; set; }
-        public string etternavn { get; set; }
+        public int key { get; set; }
+        public string word { get; set; }
+        public Nullable<int> count { get; set; }
     
-        public virtual rank rank { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wordsky> wordsky { get; set; }
     }

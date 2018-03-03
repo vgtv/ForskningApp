@@ -130,13 +130,11 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        // trenger tabellen
         public bool savePersonWordCloud(List<string> groupedTitles)
         {
             throw new NotImplementedException();
         }
 
-        // trenger tabellen
         public bool saveWordCloud(List<string> groupedTitles)
         {
             throw new NotImplementedException();
@@ -162,7 +160,6 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        // trenger tabellen
         public bool updateWordCloud(List<string> groupedTitles)
         {
             throw new NotImplementedException();

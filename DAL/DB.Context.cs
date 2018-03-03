@@ -55,5 +55,7 @@ namespace DAL
         public virtual DbSet<stopwords> stopwords { get; set; }
         public virtual DbSet<tidsskrift> journal { get; set; }
         public virtual DbSet<tilhorighet> tilhorighet { get; set; }
+        public virtual DbSet<words> words { get; set; }
+        public virtual DbSet<wordsky> wordsky { get; set; }
     }
 }

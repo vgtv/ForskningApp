@@ -5,37 +5,41 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="71843b6aeecf4ad4bcce22dc5e1f591c" Name="Diagram1">
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2007" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2008" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2009" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2010" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2011" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2012" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2013" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2014" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2015" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2016" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2007" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2008" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2009" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2010" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2011" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2012" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2013" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2014" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2015" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.aarligranking2016" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.eierskap" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.forfattere" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.forskning" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.institutter" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.person" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.rank" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.rankinstitusjon" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.stopwords" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.tidsskrift" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.tilhorighet" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2007" Width="1.5" PointX="12.375" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2008" Width="1.5" PointX="13.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2009" Width="1.5" PointX="15.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2010" Width="1.5" PointX="13.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2011" Width="1.5" PointX="15.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2012" Width="1.5" PointX="12.375" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2013" Width="1.5" PointX="12.375" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2014" Width="1.5" PointX="14.375" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2015" Width="1.5" PointX="13" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarliginstitusjonsranking2016" Width="1.5" PointX="16.375" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2007" Width="1.5" PointX="13.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2008" Width="1.5" PointX="12.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2009" Width="1.5" PointX="16.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2010" Width="1.5" PointX="13.875" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2011" Width="1.5" PointX="2.875" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2012" Width="1.5" PointX="14.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2013" Width="1.5" PointX="12.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2014" Width="1.5" PointX="14.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2015" Width="1.5" PointX="14.875" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.aarligranking2016" Width="1.5" PointX="16.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.eierskap" Width="1.5" PointX="0.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.forfattere" Width="1.5" PointX="4.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.forskning" Width="1.5" PointX="0.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.institutter" Width="1.5" PointX="7" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.person" Width="1.5" PointX="5.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.rank" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.rankinstitusjon" Width="1.5" PointX="15" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.stopwords" Width="1.5" PointX="5.125" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.tidsskrift" Width="1.5" PointX="2.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.tilhorighet" Width="1.5" PointX="6.75" PointY="6.375" IsExpanded="true" />
         <AssociationConnector Association="dbModel.rank_FNcristinID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbModel.words" Width="1.5" PointX="1.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.wordsky" Width="1.5" PointX="3.25" PointY="1.375" />
+        <AssociationConnector Association="dbModel.FK_cristinID_person" />
+        <AssociationConnector Association="dbModel.FK_Id_words" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

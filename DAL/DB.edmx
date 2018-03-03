@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="aarliginstitusjonsranking2007">
           <Key>
             <PropertyRef Name="cristinID" />
@@ -389,6 +389,47 @@
           <Property Name="posisjon" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="aktiv" Type="smallint" Nullable="false" />
         </EntityType>
+        <EntityType Name="words">
+          <Key>
+            <PropertyRef Name="key" />
+          </Key>
+          <Property Name="key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="word" Type="varchar" MaxLength="30" />
+          <Property Name="count" Type="int" />
+        </EntityType>
+        <EntityType Name="wordsky">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="cristinID" Type="varchar" MaxLength="30" />
+          <Property Name="key" Type="int" />
+          <Property Name="count" Type="smallint" />
+        </EntityType>
+        <Association Name="FK_cristinID_person">
+          <End Role="person" Type="Self.person" Multiplicity="0..1" />
+          <End Role="wordsky" Type="Self.wordsky" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="cristinID" />
+            </Principal>
+            <Dependent Role="wordsky">
+              <PropertyRef Name="cristinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Id_words">
+          <End Role="words" Type="Self.words" Multiplicity="0..1" />
+          <End Role="wordsky" Type="Self.wordsky" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="words">
+              <PropertyRef Name="key" />
+            </Principal>
+            <Dependent Role="wordsky">
+              <PropertyRef Name="key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="rank$FNcristinID">
           <End Role="person" Type="Self.person" Multiplicity="1" />
           <End Role="rank" Type="Self.rank" Multiplicity="0..1" />
@@ -432,13 +473,22 @@
           <EntitySet Name="stopwords" EntityType="Self.stopwords" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="words" EntityType="Self.words" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="wordsky" EntityType="Self.wordsky" Schema="forskningsresultater" store:Type="Tables" />
+          <AssociationSet Name="FK_cristinID_person" Association="Self.FK_cristinID_person">
+            <End Role="person" EntitySet="person" />
+            <End Role="wordsky" EntitySet="wordsky" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Id_words" Association="Self.FK_Id_words">
+            <End Role="words" EntitySet="words" />
+            <End Role="wordsky" EntitySet="wordsky" />
+          </AssociationSet>
           <AssociationSet Name="rank$FNcristinID" Association="Self.rank$FNcristinID">
             <End Role="person" EntitySet="person" />
             <End Role="rank" EntitySet="rank" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -772,6 +822,7 @@
           <Property Name="fornavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="etternavn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="rank" Relationship="Self.rank_FNcristinID" FromRole="person" ToRole="rank" />
+          <NavigationProperty Name="wordsky" Relationship="dbModel.FK_cristinID_person" FromRole="person" ToRole="wordsky" />
         </EntityType>
         <EntityType Name="rank">
           <Key>
@@ -875,7 +926,61 @@
             <End Role="person" EntitySet="person" />
             <End Role="rank" EntitySet="rank" />
           </AssociationSet>
+          <EntitySet Name="words" EntityType="dbModel.words" />
+          <EntitySet Name="wordsky" EntityType="dbModel.wordsky" />
+          <AssociationSet Name="FK_cristinID_person" Association="dbModel.FK_cristinID_person">
+            <End Role="person" EntitySet="person" />
+            <End Role="wordsky" EntitySet="wordsky" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Id_words" Association="dbModel.FK_Id_words">
+            <End Role="words" EntitySet="words" />
+            <End Role="wordsky" EntitySet="wordsky" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="words">
+          <Key>
+            <PropertyRef Name="key" />
+          </Key>
+          <Property Name="key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="count" Type="Int32" />
+          <NavigationProperty Name="wordsky" Relationship="dbModel.FK_Id_words" FromRole="words" ToRole="wordsky" />
+        </EntityType>
+        <EntityType Name="wordsky">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="key" Type="Int32" />
+          <Property Name="count" Type="Int16" />
+          <NavigationProperty Name="person" Relationship="dbModel.FK_cristinID_person" FromRole="wordsky" ToRole="person" />
+          <NavigationProperty Name="words" Relationship="dbModel.FK_Id_words" FromRole="wordsky" ToRole="words" />
+        </EntityType>
+        <Association Name="FK_cristinID_person">
+          <End Type="dbModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="dbModel.wordsky" Role="wordsky" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="cristinID" />
+            </Principal>
+            <Dependent Role="wordsky">
+              <PropertyRef Name="cristinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Id_words">
+          <End Type="dbModel.words" Role="words" Multiplicity="0..1" />
+          <End Type="dbModel.wordsky" Role="wordsky" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="words">
+              <PropertyRef Name="key" />
+            </Principal>
+            <Dependent Role="wordsky">
+              <PropertyRef Name="key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1293,6 +1398,25 @@
                 <ScalarProperty Name="institutt" ColumnName="institutt" />
                 <ScalarProperty Name="posisjon" ColumnName="posisjon" />
                 <ScalarProperty Name="aktiv" ColumnName="aktiv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="words">
+            <EntityTypeMapping TypeName="dbModel.words">
+              <MappingFragment StoreEntitySet="words">
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="word" ColumnName="word" />
+                <ScalarProperty Name="key" ColumnName="key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wordsky">
+            <EntityTypeMapping TypeName="dbModel.wordsky">
+              <MappingFragment StoreEntitySet="wordsky">
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
