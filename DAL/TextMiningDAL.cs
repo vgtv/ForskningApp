@@ -65,15 +65,22 @@ namespace DAL
                 {
                     writer.WriteLine(titles);    
                     tokenizedTitles.Remove(titles);
-
                 }
             }
             return tokenizedTitles;
         }
 
 
-        public bool checkStopWord(string token)
+        public bool checkStopWord(List<string> tokenizedTitles)
         {
+            foreach (var words in tokenizedTitles)
+            {
+                
+                {
+
+                }
+            }
+
             throw new NotImplementedException();
         }
 
@@ -174,6 +181,11 @@ namespace DAL
         }
 
         public bool updateWordCloud(List<string> groupedTitles)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
         {
             throw new NotImplementedException();
         }
