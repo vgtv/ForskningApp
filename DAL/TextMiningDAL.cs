@@ -3,6 +3,7 @@ using NetSpell.SpellChecker.Dictionary;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,12 +51,24 @@ namespace DAL
             }
         }
 
+    
         // Skal også finne ut hvem som blir slettet
         // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
-        // Smart ideer: feks. filskriving?Greit
+        // Smart ideer: feks. filskriving?Okei
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
-            throw new NotImplementedException();
+
+         using (StreamWriter writer = new StreamWriter("languagesRemoved.txt")) // Vet ikke om dette funker. Du får teste Antån.
+                foreach (var titles in tokenizedTitles)
+            {
+                if(checkLanguage(titles, spelling) == false)
+                {
+                    writer.WriteLine(titles);    
+                    tokenizedTitles.Remove(titles);
+
+                }
+            }
+            return tokenizedTitles;
         }
 
 
