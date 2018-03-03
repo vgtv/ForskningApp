@@ -52,8 +52,8 @@ namespace DAL
 
         // Skal også finne ut hvem som blir slettet
         // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
-        // Smart ideer: feks. filskriving?Okei
-        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
+        // Smart ideer: feks. filskriving?Greit
+        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
             throw new NotImplementedException();
         }
