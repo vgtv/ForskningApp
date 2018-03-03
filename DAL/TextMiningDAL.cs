@@ -75,7 +75,7 @@ namespace DAL
         public bool checkStopWord(string token)
         {
             var test = false; 
-            var stopWords = getStopwords();
+            var stopWords = getStopwords(); //Denne må vi lage
             foreach (var words in stopWords)
             {
                 if(token == words)
