@@ -14,12 +14,12 @@ namespace DAL
     {
         public void addStopsWordsDB(List<string> stopWords)
         {
-            using(var db = new dbEntities())
+            using (var db = new dbEntities())
             {
-                foreach(var newStopWord in stopWords)
+                foreach (var newStopWord in stopWords)
                 {
-                   //Debug.WriteLine("Inserting stop word: " + newStopWord);
-                   db.stopwords.Add(new stopwords { word = newStopWord });
+                    //Debug.WriteLine("Inserting stop word: " + newStopWord);
+                    db.stopwords.Add(new stopwords { word = newStopWord });
                 }
                 db.SaveChanges();
             }
@@ -32,7 +32,7 @@ namespace DAL
             oDict.Initialize();
 
             var wordcount = 0;
-            foreach ( var words in tokenizedTitle)
+            foreach (var words in tokenizedTitle)
             {
                 if (spelling.TestWord(words))
                 {
@@ -40,49 +40,51 @@ namespace DAL
                 }
             }
 
-            if(wordcount > 5)
+            if (wordcount > 5)
             {
-                return true;   
+                return true;
             }
 
             else
             {
-                return false; 
+                return false;
             }
         }
 
-    
+
         // Skal også finne ut hvem som blir slettet
         // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
         // Smart ideer: feks. filskriving?Okei
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
 
-         using (StreamWriter writer = new StreamWriter("languagesRemoved.txt")) // Vet ikke om dette funker. Du får teste Antån.
+            using (StreamWriter writer = new StreamWriter("languagesRemoved.txt")) // Vet ikke om dette funker. Du får teste Antån.
                 foreach (var titles in tokenizedTitles)
-            {
-                if(checkLanguage(titles, spelling) == false)
                 {
-                    writer.WriteLine(titles);    
-                    tokenizedTitles.Remove(titles);
+                    if (checkLanguage(titles, spelling) == false)
+                    {
+                        writer.WriteLine(titles);
+                        tokenizedTitles.Remove(titles);
+
+                    }
                 }
-            }
             return tokenizedTitles;
         }
 
 
-        public bool checkStopWord(List<string> tokenizedTitles)
+        public bool checkStopWord(string token)
         {
-            foreach (var words in tokenizedTitles)
+            var test = false; 
+            var stopWords = getStopwords();
+            foreach (var words in stopWords)
             {
-                
+                if(token == words)
                 {
-
+                    test = true;     
                 }
             }
-
-            throw new NotImplementedException();
-        }
+            return test; 
+        } 
 
         public List<string> getCristinID()
         {
@@ -181,11 +183,6 @@ namespace DAL
         }
 
         public bool updateWordCloud(List<string> groupedTitles)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
         {
             throw new NotImplementedException();
         }
