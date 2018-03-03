@@ -26,6 +26,7 @@ namespace DAL
 
         public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
         {
+            // Disse to bør også brukes i removeLanguage:
             WordDictionary oDict = new WordDictionary { DictionaryFile = "en-US.dic" };
             oDict.Initialize();
 
@@ -48,7 +49,15 @@ namespace DAL
                 return false; 
             }
         }
-        
+
+        // Skal også finne ut hvem som blir slettet
+        // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
+        // Smart ideer: feks. filskriving?
+        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public bool checkStopWord(string token)
         {
@@ -81,14 +90,6 @@ namespace DAL
         }
 
         public List<string> groupTitles(List<List<string>> tokenizedTitles)
-        {
-            throw new NotImplementedException();
-        }
-
-        // Skal også finne ut hvem som blir slettet
-        // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
-        // Smart ideer: feks. filskriving?
-        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
         {
             throw new NotImplementedException();
         }
