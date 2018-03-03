@@ -52,7 +52,7 @@ namespace DAL
 
         // Skal også finne ut hvem som blir slettet
         // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
-        // Smart ideer: feks. filskriving?
+        // Smart ideer: feks. filskriving?Okei
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles)
         {
             throw new NotImplementedException();
