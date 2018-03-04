@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Iveonik.Stemmers;
+using NetSpell.SpellChecker;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-
-    interface ITextMiningBLL
+    public interface ITextMiningBLL
     {
         List<string> getCristinID();
 
@@ -15,17 +16,21 @@ namespace BLL
 
         List<List<string>> tokenizeTitles(List<string> titles);
 
-        List<List<string>> removeStopWords(List<List<string>> tokenizedTitles);
+        List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling);
 
-        bool checkStopWord(string token);
+        bool checkLanguage(List<string> tokenizedTitle, Spelling spelling);
 
-        List<List<string>> removeLanguages(List<List<string>> tokenizedTitles);
+        List<string> getStopWords();
 
-        bool checkLanguage(List<string> title);
+        string removeSpecialCharacters(string str);
 
-        List<List<string>> stemTitles(List<List<string>> tokenizedTitles);
+        List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords);
 
-        List<string> groupTitles(List<List<string>> tokenizedTitles);
+        bool checkStopWord(string token, List<string> stopWords);
+
+        List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
+    
+        IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
 
         bool updateWordCloud(List<string> groupedTitles);
 
@@ -33,9 +38,9 @@ namespace BLL
 
         List<string> getTopCloudWords();
 
-        bool addStopsWordsDB(List<string> stopWords);
+        void addStopsWordsDB(List<string> stopWords);
 
-        bool removeStopsWordsDB(List<string> stopWords);
+        void removeStopsWordsDB(List<string> stopWords);
     }
 }
 

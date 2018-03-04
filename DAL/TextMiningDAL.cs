@@ -1,4 +1,5 @@
-﻿using NetSpell.SpellChecker;
+﻿using Iveonik.Stemmers;
+using NetSpell.SpellChecker;
 using NetSpell.SpellChecker.Dictionary;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class TextMiningDAL : ITextMiningDAL
+    public class TextMiningDAL : ITextMiningDAL
     {
         public void addStopsWordsDB(List<string> stopWords)
         {
@@ -18,102 +19,70 @@ namespace DAL
             {
                 foreach (var newStopWord in stopWords)
                 {
-                    //Debug.WriteLine("Inserting stop word: " + newStopWord);
-                    db.stopwords.Add(new stopwords { word = newStopWord });
+                    if(db.stopwords.Where(sw => sw.Word == newStopWord).FirstOrDefault() == null){
+                        db.stopwords.Add(new stopwords { Word = newStopWord });
+                    }
                 }
                 db.SaveChanges();
             }
         }
 
-        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
-        {
-            // Disse to bør også brukes i removeLanguage:
-            WordDictionary oDict = new WordDictionary { DictionaryFile = "en-US.dic" };
-            oDict.Initialize();
-
-            var wordcount = 0;
-            foreach (var words in tokenizedTitle)
-            {
-                if (spelling.TestWord(words))
-                {
-                    wordcount++;
-                }
-            }
-
-            if (wordcount > 5)
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
-        }
-
-
-        // Skal også finne ut hvem som blir slettet
-        // Vi får ikke brukt Debug.WriteLine her så kom gjerne opp med noen 
-        // Smart ideer: feks. filskriving?Okei
+            
+        // deres filbane må endres her
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
-
-            using (StreamWriter writer = new StreamWriter("languagesRemoved.txt")) // Vet ikke om dette funker. Du får teste Antån.
-                foreach (var titles in tokenizedTitles)
+            using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
+                foreach (var titles in tokenizedTitles.ToList())
                 {
-                    if (checkLanguage(titles, spelling) == false)
+                    if (!checkLanguage(titles, spelling))
                     {
-                        writer.WriteLine(titles);
-                        tokenizedTitles.Remove(titles);
+                        foreach(var word in titles)
+                        {
+                            writer.Write(word + " ");
+                        }
+                       writer.WriteLine("");
 
+                       tokenizedTitles.Remove(titles);
                     }
                 }
             return tokenizedTitles;
         }
 
 
-        public bool checkStopWord(string token)
+        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
         {
-            var test = false; 
-            var stopWords = getStopwords(); //Denne må vi lage
-            foreach (var words in stopWords)
+            var wordCount = 0;
+
+            var max = tokenizedTitle.Count();
+
+            foreach (var words in tokenizedTitle)
             {
-                if(token == words)
+                if (spelling.TestWord(words))
                 {
-                    test = true;     
+                    wordCount += 1;
+                    if (wordCount > 2) return true;
                 }
             }
-            return test; 
-        } 
+            return false;
+        }
 
         public List<string> getCristinID()
         {
-            using(var db = new dbEntities())
+            using (var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).Take(5).ToList();
+                return db.person.Select(p => p.cristinID).Take(250).ToList();
             }
             // Take(5) tar kun 5 stykker til å starte med           
         }
 
-        public List<string> getTitles(string inCristinID)
+        public List<string> getTitles(string cristinID)
         {
-            using(var db = new dbEntities())
-            {                
-                return db.author.Where(f => f.cristinID == inCristinID)
+            using (var db = new dbEntities())
+            {
+                return db.author.Where(f => f.cristinID == cristinID)
                     .Select(f => (db.research.Where(fo => fo.cristinID == f.forskningsID)
                     .Select(s => s.tittel).FirstOrDefault().ToLower())).ToList();
             }
-        }
-
-        // trenger CloudWord tabellen før vi kan gjøre denne
-        public List<string> getTopCloudWords()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<string> groupTitles(List<List<string>> tokenizedTitles)
-        {
-            throw new NotImplementedException();
         }
 
         public void removeStopsWordsDB(List<string> stopWords)
@@ -122,34 +91,86 @@ namespace DAL
             {
                 foreach (var oldStopWord in stopWords)
                 {
-                 // Debug.WriteLine("Removing stop word: " + oldStopWord);
-                 var containsStopWord = db.stopwords.Where(sw => sw.word == oldStopWord).FirstOrDefault();
-                 if(containsStopWord != null) { db.stopwords.Remove(containsStopWord); }
+                    var containsStopWord = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
+                    if (containsStopWord != null) {
+                        db.stopwords.Remove(containsStopWord);
+                    }
                 }
                 db.SaveChanges();
             }
         }
-     
-        public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles)
+
+        public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
         {
-            tokenizedTitles.ForEach(title => title.ForEach(word => 
-            { if (checkStopWord(word)) title.Remove(word); }));
-
-            // To forskjellige måter å gjøre det på, øverste er mer kompakt (lambda)
-
-            foreach(var title in tokenizedTitles)
-            {
-                foreach(var word in title)
-                {
-                    if (checkStopWord(word))
-                    {
-                        title.Remove(word);
-                    }
-                }
-            }
+            tokenizedTitles.ForEach(title => title.ToList().ForEach(word => {
+                if (checkStopWord(word, stopWords)) title.Remove(word);
+            }));
 
             return tokenizedTitles;
-            throw new NotImplementedException();
+        }
+
+
+        public bool checkStopWord(string token, List<string> stopWords)
+        {
+            foreach (var stopWord in stopWords)
+            {
+                if (token == stopWord)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public List<string> getStopWords()
+        {
+            using(var db = new dbEntities())
+            {
+                return db.stopwords.Select(sw => sw.Word).ToList();
+            }
+        }
+        
+        public List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj)
+        {
+            tokenizedTitles.ForEach(title => title.ForEach(word => stemmerObj.Stem(word)));
+            return tokenizedTitles;
+        }
+
+        public List<List<string>> tokenizeTitles(List<string> titles)
+        {
+            var tokenizedTitles = new List<List<string>>();
+            foreach (var title in titles)
+            {
+                var tmp = removeSpecialCharacters(title);
+                tokenizedTitles.Add(tmp.Split().ToList());
+            }
+            return tokenizedTitles;
+        }
+
+        public string removeSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if (char.IsLetter(c) || c == '\'' || char.IsWhiteSpace(c))
+                {
+                    sb.Append(c);
+                }
+                else if (c == '-' || c == '_')
+                {
+                    sb.Append(' ');
+                }
+            }
+            return sb.ToString();
+        }
+
+
+        public IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles)
+        {
+            var wordList = new List<string>();
+            tokenizedTitles.ForEach(title => title.ForEach(word => wordList.Add(word)));
+            var groupedList = wordList.GroupBy(i => i).OrderByDescending(g => g.Count());
+            return groupedList;
         }
 
         public bool savePersonWordCloud(List<string> groupedTitles)
@@ -162,27 +183,12 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<List<string>> stemTitles(List<List<string>> tokenizedTitles)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<List<string>> tokenizeTitles(List<string> titles)
-        {
-            var tokenizedTitles = new List<List<string>>();
-            foreach(var title in titles)
-            {
-                tokenizedTitles.Add(title.Split().ToList());
-            }
-
-            // usikker på om split gjør nok, kanskje nødvendig
-            // med regex for å lete etter punktum, binnestrek osv?
-
-            return tokenizedTitles;
-            throw new NotImplementedException();
-        }
-
         public bool updateWordCloud(List<string> groupedTitles)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> getTopCloudWords()
         {
             throw new NotImplementedException();
         }

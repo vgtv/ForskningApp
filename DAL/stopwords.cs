@@ -15,6 +15,6 @@ namespace DAL
     public partial class stopwords
     {
         public int Id { get; set; }
-        public string word { get; set; }
+        public string Word { get; set; }
     }
 }

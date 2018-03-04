@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NetSpell.SpellChecker, Version=2.1.7.41329, Culture=neutral, PublicKeyToken=318b389f0db66e46">
+      <HintPath>..\packages\NetSpell.2.1.7\lib\NetSpell.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="StemmersNet, Version=1.1.1.0, Culture=neutral, PublicKeyToken=5b16b226aedf3c3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\StemmersNet.1.1.1.0\lib\net20\StemmersNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +60,9 @@
       <Project>{a8a135c8-fde8-4bac-8b58-35fbe7024d52}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using NetSpell.SpellChecker;
+﻿using Iveonik.Stemmers;
+using NetSpell.SpellChecker;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    interface ITextMiningDAL
+    public interface ITextMiningDAL
     {
         List<string> getCristinID();
 
@@ -15,28 +16,24 @@ namespace DAL
 
         List<List<string>> tokenizeTitles(List<string> titles);
 
-        List<List<string>> removeStopWords(List<List<string>> tokenizedTitles);
-
-        bool checkStopWord(string token);
-
-        List<List<string>> removeLanguages(List<List<string>> tokenizedTitles);
+        List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling);
 
         bool checkLanguage(List<string> tokenizedTitle, Spelling spelling);
 
-        List<List<string>> stemTitles(List<List<string>> tokenizedTitles);
+        List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords);
 
-        List<string> groupTitles(List<List<string>> tokenizedTitles);
+        bool checkStopWord(string token, List<string> stopWords);
 
-        /*
-         * Skal lagre alle nye ord i ordsky tabellen og oppdatere antall
-         * Eksempel: key | word | count
-         */
+        string removeSpecialCharacters(string str);
+
+        List<string> getStopWords();
+
+        List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
+
+        IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
+
         bool updateWordCloud(List<string> groupedTitles);
 
-        /*
-         * Skal lage en nye kolonner med personen sine ord og antall
-         * Eksempel: cristinID | key1 | count1 | key2 | count2 | key3 | count3
-         */
         bool savePersonWordCloud(List<string> groupedTitles);
 
         List<string> getTopCloudWords();
