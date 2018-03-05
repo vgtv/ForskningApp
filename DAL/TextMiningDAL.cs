@@ -99,7 +99,7 @@ namespace DAL
         // deres filbane må endres her
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
+            using (StreamWriter writer = new StreamWriter(@"C:\Users\Eier\fil.txt", true))
                 foreach (var titles in tokenizedTitles.ToList())
                 {
                     if (!checkLanguage(titles, spelling))
