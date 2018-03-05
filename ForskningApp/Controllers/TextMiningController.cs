@@ -23,14 +23,7 @@ namespace ForskningApp.Controllers
         public ActionResult Index()
         {
             WordDictionary englishDictionary = new WordDictionary { DictionaryFile = "en-US.dic" };
-            try
-            {
-
-                englishDictionary.Initialize();
-            } catch(Exception e)
-            {
-                Debug.WriteLine(e.Message.ToString());
-            }
+            englishDictionary.Initialize();
             Spelling englishSpeller = new Spelling { Dictionary = englishDictionary };
             EnglishStemmer englishStemmer = new EnglishStemmer();
 
