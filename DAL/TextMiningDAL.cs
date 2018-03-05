@@ -13,58 +13,9 @@ namespace DAL
 {
     public class TextMiningDAL : ITextMiningDAL
     {
-        public void addStopsWordsDB(List<string> stopWords)
-        {
-            using (var db = new dbEntities())
-            {
-                foreach (var newStopWord in stopWords)
-                {
-                    if(db.stopwords.Where(sw => sw.Word == newStopWord).FirstOrDefault() == null){
-                        db.stopwords.Add(new stopwords { Word = newStopWord });
-                    }
-                }
-                db.SaveChanges();
-            }
-        }
-
-            
-        // deres filbane må endres her
-        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
-        {
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
-                foreach (var titles in tokenizedTitles.ToList())
-                {
-                    if (!checkLanguage(titles, spelling))
-                    {
-                        foreach(var word in titles)
-                        {
-                            writer.Write(word + " ");
-                        }
-                       writer.WriteLine("");
-
-                       tokenizedTitles.Remove(titles);
-                    }
-                }
-            return tokenizedTitles;
-        }
-
-
-        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
-        {
-            var wordCount = 0;
-
-            var max = tokenizedTitle.Count();
-
-            foreach (var words in tokenizedTitle)
-            {
-                if (spelling.TestWord(words))
-                {
-                    wordCount += 1;
-                    if (wordCount > 2) return true;
-                }
-            }
-            return false;
-        }
+        /****************
+         * Get Methods
+         ****************/
 
         public List<string> getCristinID()
         {
@@ -85,51 +36,23 @@ namespace DAL
             }
         }
 
-        public void removeStopsWordsDB(List<string> stopWords)
-        {
-            using (var db = new dbEntities())
-            {
-                foreach (var oldStopWord in stopWords)
-                {
-                    var containsStopWord = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
-                    if (containsStopWord != null) {
-                        db.stopwords.Remove(containsStopWord);
-                    }
-                }
-                db.SaveChanges();
-            }
-        }
-
-        public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
-        {
-            tokenizedTitles.ForEach(title => title.ToList().ForEach(word => {
-                if (checkStopWord(word, stopWords)) title.Remove(word);
-            }));
-
-            return tokenizedTitles;
-        }
-
-
-        public bool checkStopWord(string token, List<string> stopWords)
-        {
-            foreach (var stopWord in stopWords)
-            {
-                if (token == stopWord)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public List<string> getStopWords()
         {
-            using(var db = new dbEntities())
+            using (var db = new dbEntities())
             {
                 return db.stopwords.Select(sw => sw.Word).ToList();
             }
         }
-        
+
+        public List<string> getTopCloudWords()
+        {
+            throw new NotImplementedException();
+        }  
+
+        /**************************
+         * Text Modifying methods
+         **************************/
+
         public List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj)
         {
             tokenizedTitles.ForEach(title => title.ForEach(word => stemmerObj.Stem(word)));
@@ -173,6 +96,104 @@ namespace DAL
             return groupedList;
         }
 
+        // deres filbane må endres her
+        public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
+        {
+            using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
+                foreach (var titles in tokenizedTitles.ToList())
+                {
+                    if (!checkLanguage(titles, spelling))
+                    {
+                        foreach(var word in titles)
+                        {
+                            writer.Write(word + " ");
+                        }
+                       writer.WriteLine("");
+
+                       tokenizedTitles.Remove(titles);
+                    }
+                }
+            return tokenizedTitles;
+        }
+
+
+        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
+        {
+            var wordCount = 0;
+
+            var max = tokenizedTitle.Count();
+
+            foreach (var words in tokenizedTitle)
+            {
+                if (spelling.TestWord(words))
+                {
+                    wordCount += 1;
+                    if (wordCount > 2) return true;
+                }
+            }
+            return false;
+        }
+
+        /**********************
+         * Stop Words Methods
+         **********************/
+
+        public void addStopsWordsDB(List<string> stopWords)
+        {
+            using (var db = new dbEntities())
+            {
+                foreach (var newStopWord in stopWords)
+                {
+                    if (db.stopwords.Where(sw => sw.Word == newStopWord).FirstOrDefault() == null)
+                    {
+                        db.stopwords.Add(new stopwords { Word = newStopWord });
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void removeStopsWordsDB(List<string> stopWords)
+        {
+            using (var db = new dbEntities())
+            {
+                foreach (var oldStopWord in stopWords)
+                {
+                    var containsStopWord = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
+                    if (containsStopWord != null) {
+                        db.stopwords.Remove(containsStopWord);
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
+        {
+            tokenizedTitles.ForEach(title => title.ToList().ForEach(word => {
+                if (checkStopWord(word, stopWords)) title.Remove(word);
+            }));
+
+            return tokenizedTitles;
+        }
+
+
+        public bool checkStopWord(string token, List<string> stopWords)
+        {
+            foreach (var stopWord in stopWords)
+            {
+                if (token == stopWord)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /***********************
+         * Word Cloud Methods
+         ***********************/
+
         public bool savePersonWordCloud(List<string> groupedTitles)
         {
             throw new NotImplementedException();
@@ -184,11 +205,6 @@ namespace DAL
         }
 
         public bool updateWordCloud(List<string> groupedTitles)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<string> getTopCloudWords()
         {
             throw new NotImplementedException();
         }
