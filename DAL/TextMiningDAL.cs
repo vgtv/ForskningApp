@@ -93,10 +93,15 @@ namespace DAL
             var wordList = new List<string>();
             tokenizedTitles.ForEach(title => title.ForEach(word => wordList.Add(word)));
             var groupedList = wordList.GroupBy(i => i).OrderByDescending(g => g.Count());
+
+            // var groupedList = wordList.GroupBy(i => i).ToList();
+            // groupedList.Sort();
+
             return groupedList;
         }
 
         // deres filbane må endres her
+        // @"C:\Users\an2n\fil.txt"
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
             using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
@@ -121,14 +126,11 @@ namespace DAL
         {
             var wordCount = 0;
 
-            var max = tokenizedTitle.Count();
-
             foreach (var words in tokenizedTitle)
             {
                 if (spelling.TestWord(words))
                 {
-                    wordCount += 1;
-                    if (wordCount > 2) return true;
+                    if (++wordCount > 2) return true;
                 }
             }
             return false;
