@@ -31,7 +31,6 @@ namespace ForskningApp.Controllers
             var scientistsList = textMining.getCristinID();
             var stopWords = textMining.getStopWords();
 
-
             // tokenizer legger til noen "ord" som tomme mellomrom
             // fant ikke ut hva årsaken er, sletter disse bare om de forekommer
             // i stopword tabellen
