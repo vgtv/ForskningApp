@@ -40,7 +40,9 @@ namespace ForskningApp.Controllers
             {
                 Debug.WriteLine("-------- " + scientistID + " -----------");
 
+
                 var titles = textMining.getTitles(scientistID);
+
 
                 if (titles == null) continue;
 
@@ -55,7 +57,7 @@ namespace ForskningApp.Controllers
 
                 foreach (var w in wordCloud)
                 {
-                    Debug.WriteLine("word: " + w.Key + ", count: " + w.Count());
+                Debug.WriteLine("word: " + w.Key + ", count: " + w.Count());
                 }
             }
 
