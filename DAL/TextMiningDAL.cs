@@ -21,7 +21,7 @@ namespace DAL
         {
             using (var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).Take(100).ToList();
+                return db.person.Select(p => p.cristinID).Take(250).ToList();
             }
             // Take(5) tar kun 5 stykker til å starte med           
         }
@@ -40,13 +40,28 @@ namespace DAL
                 //         blalbla   | 100
                 //          sdfsdfds | 101
 
+                /*
+                var forskningsIDer = db.author.Where(a => a.cristinID == cristinID)
+                    .Select(a => a.forskningsID).ToList();
+
+                List<string> tittlerListe = new List<string>();
+                foreach (var forskningID in forskningsIDer)
+                {
+                    tittlerListe.Add(db.research.Where(r => r.forskningsID == forskningID)
+                        .Select(r => r.tittel).FirstOrDefault().ToLower());
+                }
+                */
+
+
+
                 return db.author.Where(a => a.cristinID == cristinID)
-                     .Select(a => (db.research.Where(r => r.cristinID == a.forskningsID)
-                     .Select(r => r.tittel).FirstOrDefault()).ToLower())
+                     .Select(a => (db.research.Where(r => r.forskningsID == a.forskningsID)
+                     .Select(r => r.tittel)).FirstOrDefault().ToLower())
                      .ToList();
             }
         }
         
+
         public List<string> getStopWords()
         {
             using (var db = new dbEntities())
@@ -58,7 +73,7 @@ namespace DAL
         public List<string> getTopCloudWords()
         {
             throw new NotImplementedException();
-        }
+        }  
 
         /**************************
          * Text Modifying methods
@@ -73,20 +88,11 @@ namespace DAL
         public List<List<string>> tokenizeTitles(List<string> titles)
         {
             var tokenizedTitles = new List<List<string>>();
-
-            for(int i = 0; i < titles.Count; i++)
+            foreach (var title in titles)
             {
-                titles[i] = removeSpecialCharacters(titles[i]);
-
+                var tmp = removeSpecialCharacters(title);
+                tokenizedTitles.Add(tmp.Split().ToList());
             }
-            var test = titles.Distinct().ToList();
-
-            foreach(var title in test)
-            {
-                tokenizedTitles.Add(title.Split().ToList());
-            }
-
-           // tokenizedTitles.GroupBy(t => t).Select(r => r.FirstOrDefault());
             return tokenizedTitles;
         }
 
@@ -99,7 +105,7 @@ namespace DAL
                 {
                     sb.Append(c);
                 }
-                else if (c == '-' || c == '_' || c == '–')
+                else if (c == '-' || c == '_')
                 {
                     sb.Append(' ');
                 }
@@ -123,7 +129,7 @@ namespace DAL
 
         // deres filbane må endres her
         // @"C:\Users\an2n\fil.txt"
-
+       
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
             using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
@@ -131,13 +137,13 @@ namespace DAL
                 {
                     if (!checkLanguage(titles, spelling))
                     {
-                        foreach (var word in titles)
+                        foreach(var word in titles)
                         {
                             writer.Write(word + " ");
                         }
-                        writer.WriteLine("");
+                       writer.WriteLine("");
 
-                        tokenizedTitles.Remove(titles);
+                       tokenizedTitles.Remove(titles);
                     }
                 }
             return tokenizedTitles;
@@ -184,8 +190,7 @@ namespace DAL
                 foreach (var oldStopWord in stopWords)
                 {
                     var containsStopWord = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
-                    if (containsStopWord != null)
-                    {
+                    if (containsStopWord != null) {
                         db.stopwords.Remove(containsStopWord);
                     }
                 }
@@ -195,8 +200,7 @@ namespace DAL
 
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
         {
-            tokenizedTitles.ForEach(title => title.ToList().ForEach(word =>
-            {
+            tokenizedTitles.ForEach(title => title.ToList().ForEach(word => {
                 if (checkStopWord(word, stopWords)) title.Remove(word);
             }));
 
