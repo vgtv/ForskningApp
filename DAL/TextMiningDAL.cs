@@ -21,7 +21,7 @@ namespace DAL
         {
             using (var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).Take(250).ToList();
+                return db.person.Select(p => p.cristinID).Take(20).ToList();
             }
             // Take(5) tar kun 5 stykker til å starte med           
         }
@@ -40,27 +40,12 @@ namespace DAL
                 //         blalbla   | 100
                 //          sdfsdfds | 101
 
-                /*
-                var forskningsIDer = db.author.Where(a => a.cristinID == cristinID)
-                    .Select(a => a.forskningsID).ToList();
-
-                List<string> tittlerListe = new List<string>();
-                foreach (var forskningID in forskningsIDer)
-                {
-                    tittlerListe.Add(db.research.Where(r => r.forskningsID == forskningID)
-                        .Select(r => r.tittel).FirstOrDefault().ToLower());
-                }
-                */
-
-
-
                 return db.author.Where(a => a.cristinID == cristinID)
-                     .Select(a => (db.research.Where(r => r.forskningsID == a.forskningsID)
-                     .Select(r => r.tittel)).FirstOrDefault().ToLower())
+                     .Select(a => (db.research.Where(r => r.cristinID == a.forskningsID)
+                     .Select(r => r.tittel).FirstOrDefault()).ToLower())
                      .ToList();
             }
         }
-        
 
         public List<string> getStopWords()
         {
@@ -73,7 +58,7 @@ namespace DAL
         public List<string> getTopCloudWords()
         {
             throw new NotImplementedException();
-        }  
+        }
 
         /**************************
          * Text Modifying methods
@@ -88,11 +73,19 @@ namespace DAL
         public List<List<string>> tokenizeTitles(List<string> titles)
         {
             var tokenizedTitles = new List<List<string>>();
-            foreach (var title in titles)
+
+            for (int i = 0; i < titles.Count; i++)
             {
-                var tmp = removeSpecialCharacters(title);
-                tokenizedTitles.Add(tmp.Split().ToList());
+                titles[i] = removeSpecialCharacters(titles[i]);
+
             }
+            var test = titles.Distinct().ToList();
+
+            foreach (var title in test)
+            {
+                tokenizedTitles.Add(title.Split().ToList());
+            }
+
             return tokenizedTitles;
         }
 
@@ -105,13 +98,13 @@ namespace DAL
                 {
                     sb.Append(c);
                 }
-                else if (c == '-' || c == '_')
+                else if (c == '-' || c == '_' || c == '–' || c == ':')
                 {
                     sb.Append(' ');
                 }
             }
             return sb.ToString();
-        }
+        }   
 
 
         public IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles)
@@ -129,39 +122,64 @@ namespace DAL
 
         // deres filbane må endres her
         // @"C:\Users\an2n\fil.txt"
-       
+
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
             using (StreamWriter writer = new StreamWriter(@"C:\Users\an2n\fil.txt", true))
                 foreach (var titles in tokenizedTitles.ToList())
                 {
-                    if (!checkLanguage(titles, spelling))
+                    if (!isEnglish(titles, spelling))
                     {
-                        foreach(var word in titles)
+                        foreach (var word in titles)
                         {
                             writer.Write(word + " ");
                         }
-                       writer.WriteLine("");
+                        writer.WriteLine("");
 
-                       tokenizedTitles.Remove(titles);
+                        tokenizedTitles.Remove(titles);
                     }
                 }
             return tokenizedTitles;
         }
 
 
-        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
+        public bool isEnglish(List<string> tokenizedTitle, Spelling spelling)
         {
-            var wordCount = 0;
+            Int32 wordCount = 0;
+
+            Int32 length = tokenizedTitle.Count;
+            Int32 percentage = 0;
 
             foreach (var words in tokenizedTitle)
             {
                 if (spelling.TestWord(words))
                 {
-                    if (++wordCount > 2) return true;
+                    ++wordCount;
+                    percentage = (int)(0.5f + ((100f * wordCount) / length));
                 }
             }
-            return false;
+
+            if (percentage > 40)
+            {
+                Debug.WriteLine(percentage + " % is english: ");
+
+                foreach (var v in tokenizedTitle)
+                {
+                    Debug.Write(v + " ");
+                }
+                Debug.WriteLine(wordCount + " : " + length);
+                return true;
+            }
+            else
+            {
+                Debug.WriteLine(percentage + "% is english: ");
+                foreach (var v in tokenizedTitle)
+                {
+                    Debug.Write(v + " ");
+                }
+                Debug.WriteLine(wordCount + " : " + length);
+                return false;
+            }
         }
 
         /**********************
@@ -190,7 +208,8 @@ namespace DAL
                 foreach (var oldStopWord in stopWords)
                 {
                     var containsStopWord = db.stopwords.Where(sw => sw.Word == oldStopWord).FirstOrDefault();
-                    if (containsStopWord != null) {
+                    if (containsStopWord != null)
+                    {
                         db.stopwords.Remove(containsStopWord);
                     }
                 }
@@ -200,15 +219,16 @@ namespace DAL
 
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
         {
-            tokenizedTitles.ForEach(title => title.ToList().ForEach(word => {
-                if (checkStopWord(word, stopWords)) title.Remove(word);
+            tokenizedTitles.ForEach(title => title.ToList().ForEach(word =>
+            {
+                if (isStopWord(word, stopWords)) title.Remove(word);
             }));
 
             return tokenizedTitles;
         }
 
 
-        public bool checkStopWord(string token, List<string> stopWords)
+        public bool isStopWord(string token, List<string> stopWords)
         {
             foreach (var stopWord in stopWords)
             {

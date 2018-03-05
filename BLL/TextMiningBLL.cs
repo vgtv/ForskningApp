@@ -30,14 +30,14 @@ namespace BLL
             textMining.addStopsWordsDB(stopWords);
         }
 
-        public bool checkLanguage(List<string> tokenizedTitle, Spelling spelling)
+        public bool isEnglish(List<string> tokenizedTitle, Spelling spelling)
         {
-            return textMining.checkLanguage(tokenizedTitle, spelling);
+            return textMining.isEnglish(tokenizedTitle, spelling);
         }
 
-        public bool checkStopWord(string token, List<string> stopWords)
+        public bool isStopWord(string token, List<string> stopWords)
         {
-            return textMining.checkStopWord(token, stopWords);
+            return textMining.isStopWord(token, stopWords);
         }
 
         public List<string> getCristinID()

@@ -18,7 +18,7 @@ namespace BLL
 
         List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling);
 
-        bool checkLanguage(List<string> tokenizedTitle, Spelling spelling);
+        bool isEnglish(List<string> tokenizedTitle, Spelling spelling);
 
         List<string> getStopWords();
 
