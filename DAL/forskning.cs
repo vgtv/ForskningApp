@@ -15,7 +15,7 @@ namespace DAL
     public partial class forskning
     {
         public int resultatID { get; set; }
-        public string cristinID { get; set; }
+        public string forskningsID { get; set; }
         public string tittel { get; set; }
         public string aar { get; set; }
         public string kvalitet { get; set; }

@@ -30,11 +30,37 @@ namespace DAL
         {
             using (var db = new dbEntities())
             {
-                return db.author.Where(f => f.cristinID == cristinID)
-                    .Select(f => (db.research.Where(fo => fo.cristinID == f.forskningsID)
-                    .Select(s => s.tittel).FirstOrDefault().ToLower())).ToList();
+                // Frode sin id er 65073
+
+                // author: cristinID | forskningsID
+                //         65073     | 100
+                //         65073     | 101
+                //         65073     | 102
+                // research tittel   | forskningsid
+                //         blalbla   | 100
+                //          sdfsdfds | 101
+
+                /*
+                var forskningsIDer = db.author.Where(a => a.cristinID == cristinID)
+                    .Select(a => a.forskningsID).ToList();
+
+                List<string> tittlerListe = new List<string>();
+                foreach (var forskningID in forskningsIDer)
+                {
+                    tittlerListe.Add(db.research.Where(r => r.forskningsID == forskningID)
+                        .Select(r => r.tittel).FirstOrDefault().ToLower());
+                }
+                */
+
+
+
+                return db.author.Where(a => a.cristinID == cristinID)
+                     .Select(a => (db.research.Where(r => r.forskningsID == a.forskningsID)
+                     .Select(r => r.tittel)).FirstOrDefault().ToLower())
+                     .ToList();
             }
         }
+
 
         public List<string> getStopWords()
         {
@@ -92,6 +118,7 @@ namespace DAL
         {
             var wordList = new List<string>();
             tokenizedTitles.ForEach(title => title.ForEach(word => wordList.Add(word)));
+
             var groupedList = wordList.GroupBy(i => i).OrderByDescending(g => g.Count());
 
             // var groupedList = wordList.GroupBy(i => i).ToList();
@@ -102,6 +129,7 @@ namespace DAL
 
         // deres filbane må endres her
         // @"C:\Users\an2n\fil.txt"
+       
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
             using (StreamWriter writer = new StreamWriter(@"C:\Users\Eier\fil.txt", true))
