@@ -26,15 +26,13 @@ namespace BLL
 
         List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords);
 
-        bool checkStopWord(string token, List<string> stopWords);
+        bool isStopWord(string token, List<string> stopWords);
 
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
     
         IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
 
-        bool updateWordCloud(List<string> groupedTitles);
-
-        bool savePersonWordCloud(List<string> groupedTitles);
+        bool saveWordCloud(IOrderedEnumerable<IGrouping<string, string>> groupedWords);
 
         List<string> getTopCloudWords();
 

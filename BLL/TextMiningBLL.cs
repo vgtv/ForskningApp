@@ -23,8 +23,6 @@ namespace BLL
             return textMining.tokenizeTitles(titles);
         }
 
-
-
         public void addStopsWordsDB(List<string> stopWords)
         {
             textMining.addStopsWordsDB(stopWords);
@@ -75,19 +73,9 @@ namespace BLL
             return textMining.stemTitles(tokenizedTitles, stemmerObj);
         }
 
-        public bool savePersonWordCloud(List<string> groupedTitles)
-        {
-            return textMining.savePersonWordCloud(groupedTitles);
-        }
-
         public List<string> getTopCloudWords()
         {
             return textMining.getTopCloudWords();
-        }
-
-        public bool updateWordCloud(List<string> groupedTitles)
-        {
-            return textMining.updateWordCloud(groupedTitles);
         }
 
         public List<string> getStopWords()
@@ -98,6 +86,11 @@ namespace BLL
         public string removeSpecialCharacters(string str)
         {
             return textMining.removeSpecialCharacters(str);
+        }
+
+        public bool saveWordCloud(IOrderedEnumerable<IGrouping<string, string>> groupedWords)
+        {
+            return textMining.saveWordCloud(groupedWords);
         }
     }
 }

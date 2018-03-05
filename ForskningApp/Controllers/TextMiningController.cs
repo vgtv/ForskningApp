@@ -24,7 +24,7 @@ namespace ForskningApp.Controllers
         {
 
             WordDictionary englishDictionary = new WordDictionary { DictionaryFile = "en-US.dic" };
-     
+
             Spelling englishSpeller = new Spelling { Dictionary = englishDictionary };
             EnglishStemmer englishStemmer = new EnglishStemmer();
 
@@ -40,13 +40,7 @@ namespace ForskningApp.Controllers
             {
                 Debug.WriteLine("-------- " + scientistID + " -----------");
 
-
                 var titles = textMining.getTitles(scientistID);
-
-                /*foreach(var i in titles)
-                {
-                    Debug.WriteLine("ARTICLE: " + i);
-                }*/
 
                 if (titles == null) continue;
 
@@ -59,10 +53,11 @@ namespace ForskningApp.Controllers
 
                 var wordCloud = textMining.groupTitles(tokenizedTitles);
 
-              /*  foreach (var w in wordCloud)
+                /*foreach (var w in wordCloud)
                 {
-                Debug.WriteLine("TEXT MINER | word: " + w.Key + ", count: " + w.Count());
+                    Debug.WriteLine("TEXT MINER | word: " + w.Key + ", count: " + w.Count());
                 }*/
+                textMining.saveWordCloud(wordCloud);
             }
 
             return View();

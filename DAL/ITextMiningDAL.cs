@@ -32,9 +32,7 @@ namespace DAL
 
         IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
 
-        bool updateWordCloud(List<string> groupedTitles);
-
-        bool savePersonWordCloud(List<string> groupedTitles);
+        bool saveWordCloud(IOrderedEnumerable<IGrouping<string, string>> groupedWords);
 
         List<string> getTopCloudWords();
 
