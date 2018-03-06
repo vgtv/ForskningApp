@@ -22,25 +22,21 @@ namespace ForskningApp.Controllers
 
         public ActionResult Index()
         {
-
             WordDictionary englishDictionary = new WordDictionary { DictionaryFile = "en-US.dic" };
-
+            englishDictionary.Initialize();
             Spelling englishSpeller = new Spelling { Dictionary = englishDictionary };
             EnglishStemmer englishStemmer = new EnglishStemmer();
 
-            var scientistsList = textMining.getCristinID();
+            var cristinIDList = textMining.getCristinID();
             var stopWords = textMining.getStopWords();
 
-            // tokenizer legger til noen "ord" som tomme mellomrom
-            // fant ikke ut hva årsaken er, sletter disse bare om de forekommer
-            // i stopword tabellen
-            textMining.addStopsWordsDB(new List<string> { "" });
+            // textMining.addStopsWordsDB(new List<string> { "" });
 
-            foreach (var scientistID in scientistsList)
+            foreach (var cristinID in cristinIDList)
             {
-                Debug.WriteLine("-------- " + scientistID + " -----------");
+                Debug.WriteLine("-------- " + cristinID + " -----------");
 
-                var titles = textMining.getTitles(scientistID);
+                var titles = textMining.getTitles(cristinID);
 
                 if (titles == null) continue;
 
@@ -51,13 +47,18 @@ namespace ForskningApp.Controllers
                 textMining.removeStopWords(tokenizedTitles, stopWords);
                 textMining.stemTitles(tokenizedTitles, englishStemmer);
 
-                var wordCloud = textMining.groupTitles(tokenizedTitles);
+                var groupeWords = textMining.groupTitles(tokenizedTitles);
 
                 /*foreach (var w in wordCloud)
                 {
                     Debug.WriteLine("TEXT MINER | word: " + w.Key + ", count: " + w.Count());
                 }*/
-                textMining.saveWordCloud(wordCloud);
+
+                /*if (textMining.isActive(groupeWords))
+                {
+                    textMining.saveWords(groupeWords);
+                    textMining.saveWordCloud(groupeWords, cristinID);
+                }*/
             }
 
             return View();

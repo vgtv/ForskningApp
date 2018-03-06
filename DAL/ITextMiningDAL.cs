@@ -20,24 +20,28 @@ namespace DAL
 
         bool isEnglish(List<string> tokenizedTitle, Spelling spelling);
 
+        List<string> getStopWords();
+
+        string removeSpecialCharacters(string str);
+
         List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords);
 
         bool isStopWord(string token, List<string> stopWords);
 
-        string removeSpecialCharacters(string str);
-
-        List<string> getStopWords();
-
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
 
-        IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
+        bool isActive(List<IGrouping<string, string>> groupedWords);
 
-        bool saveWordCloud(IOrderedEnumerable<IGrouping<string, string>> groupedWords);
+        List<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
+
+        bool saveWords(List<IGrouping<string, string>> groupedWords);
+
+        bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID);
 
         List<string> getTopCloudWords();
 
-        void addStopsWordsDB(List<string> stopWords);
+        bool addStopsWordsDB(List<string> stopWords);
 
-        void removeStopsWordsDB(List<string> stopWords);
+        bool removeStopsWordsDB(List<string> stopWords);
     }
 }

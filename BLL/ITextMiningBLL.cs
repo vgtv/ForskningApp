@@ -29,16 +29,20 @@ namespace BLL
         bool isStopWord(string token, List<string> stopWords);
 
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
-    
-        IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
 
-        bool saveWordCloud(IOrderedEnumerable<IGrouping<string, string>> groupedWords);
+        bool isActive(List<IGrouping<string, string>> groupedWords);
+
+        List<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
+
+        bool saveWords(List<IGrouping<string, string>> groupedWords);
+
+        bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID);
 
         List<string> getTopCloudWords();
 
-        void addStopsWordsDB(List<string> stopWords);
+        bool addStopsWordsDB(List<string> stopWords);
 
-        void removeStopsWordsDB(List<string> stopWords);
+        bool removeStopsWordsDB(List<string> stopWords);
     }
 }
 

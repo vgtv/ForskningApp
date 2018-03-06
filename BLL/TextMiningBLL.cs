@@ -11,86 +11,95 @@ namespace BLL
 {
     public class TextMiningBLL : ITextMiningBLL
     {
-        private ITextMiningDAL textMining;
+        private ITextMiningDAL _textMiningDAL;
 
         public TextMiningBLL()
         {
-            textMining = new TextMiningDAL();
+            _textMiningDAL = new TextMiningDAL();
         }
 
         public List<List<string>> tokenizeTitles(List<string> titles)
         {
-            return textMining.tokenizeTitles(titles);
+            return _textMiningDAL.tokenizeTitles(titles);
         }
 
-        public void addStopsWordsDB(List<string> stopWords)
+        public bool addStopsWordsDB(List<string> stopWords)
         {
-            textMining.addStopsWordsDB(stopWords);
+            return _textMiningDAL.addStopsWordsDB(stopWords);
         }
 
         public bool isEnglish(List<string> tokenizedTitle, Spelling spelling)
         {
-            return textMining.isEnglish(tokenizedTitle, spelling);
+            return _textMiningDAL.isEnglish(tokenizedTitle, spelling);
         }
 
         public bool isStopWord(string token, List<string> stopWords)
         {
-            return textMining.isStopWord(token, stopWords);
+            return _textMiningDAL.isStopWord(token, stopWords);
         }
 
         public List<string> getCristinID()
         {
-            return textMining.getCristinID();
+            return _textMiningDAL.getCristinID();
         }
 
         public List<string> getTitles(string cristinID)
         {
-            return textMining.getTitles(cristinID);
+            return _textMiningDAL.getTitles(cristinID);
         }
 
-        public IOrderedEnumerable<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles)
+        public List<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles)
         {
-            return textMining.groupTitles(tokenizedTitles);
+            return _textMiningDAL.groupTitles(tokenizedTitles);
         }
 
         public List<List<string>> removeLanguages(List<List<string>> tokenizedTitles, Spelling spelling)
         {
-            return textMining.removeLanguages(tokenizedTitles, spelling);
+            return _textMiningDAL.removeLanguages(tokenizedTitles, spelling);
         }
 
-        public void removeStopsWordsDB(List<string> stopWords)
+        public bool removeStopsWordsDB(List<string> stopWords)
         {
-            textMining.removeStopsWordsDB(stopWords);
+            return _textMiningDAL.removeStopsWordsDB(stopWords);
         }
 
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
         {
-            return textMining.removeStopWords(tokenizedTitles, stopWords);
+            return _textMiningDAL.removeStopWords(tokenizedTitles, stopWords);
         }
 
         public List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj)
         {
-            return textMining.stemTitles(tokenizedTitles, stemmerObj);
+            return _textMiningDAL.stemTitles(tokenizedTitles, stemmerObj);
         }
 
         public List<string> getTopCloudWords()
         {
-            return textMining.getTopCloudWords();
+            return _textMiningDAL.getTopCloudWords();
         }
 
         public List<string> getStopWords()
         {
-            return textMining.getStopWords();
+            return _textMiningDAL.getStopWords();
         }
 
         public string removeSpecialCharacters(string str)
         {
-            return textMining.removeSpecialCharacters(str);
+            return _textMiningDAL.removeSpecialCharacters(str);
         }
 
-        public bool saveWordCloud(IOrderedEnumerable<IGrouping<string, string>> groupedWords)
+        public bool saveWords(List<IGrouping<string, string>> groupedWords)
         {
-            return textMining.saveWordCloud(groupedWords);
+            return _textMiningDAL.saveWords(groupedWords);
+        }
+
+        public bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID)
+        {
+            return _textMiningDAL.saveWordCloud(groupedWords, cristinID);
+        }
+        public bool isActive(List<IGrouping<string, string>> groupedWords)
+        {
+            return _textMiningDAL.isActive(groupedWords);
         }
     }
 }
