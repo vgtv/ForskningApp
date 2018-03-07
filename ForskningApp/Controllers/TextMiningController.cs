@@ -51,13 +51,18 @@ namespace ForskningApp.Controllers
 
                     var groupedWords = textMining.groupTitles(tokenizedTitles);
 
-                    textMining.saveWords(groupedWords);
+                    var saved = textMining.saveWords(groupedWords);
+
+                    if (saved)
+                    {
+                        Debug.WriteLine("-----------Save operation has succed-----------");
+                    }
+                    else
+                    {
+                        Debug.WriteLine("----------Error while svaing----------------");
+                    }
 
                 }
-
-                
-              
-                
 
                 /*foreach (var w in wordCloud)
                 {

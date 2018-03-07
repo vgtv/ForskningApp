@@ -24,7 +24,7 @@ namespace DAL
         {
             using (var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).Take(15).ToList();
+                return db.person.Select(p => p.cristinID).Take(10000).ToList();
             }
         }
 
