@@ -130,7 +130,7 @@ namespace DAL
         {
             var wordList = new List<string>();
             tokenizedTitles.ForEach(title => title.ForEach(word => wordList.Add(word)));
-            return wordList.GroupBy(i => i).OrderByDescending(g => g.Count()).Take(10).ToList();
+            return wordList.GroupBy(i => i).OrderByDescending(g => g.Count()).Take(40).ToList();
         }
 
         /*
@@ -231,28 +231,11 @@ namespace DAL
          *
          * !Dette er noe som bør testes for å finne en balanse. Hva tenker dere?
          */
-        public bool isActive(List<IGrouping<string, string>> groupedWords, int titleCount)
+        public bool isActive(List<List<string>> tokenizedTitles)
         {
-            // Eksempel
-            Int32 count = 0;
-            Int32 listSize = groupedWords.Count();
+            var count = tokenizedTitles.Count();
 
-            if (listSize < 10)
-            {
-                return false;
-            }
-
-            foreach (var words in groupedWords)
-            {
-                count += words.Count();
-            }
-
-            if (count < 30)
-            {
-                return false; 
-            }
-
-            return true;
+            return count >= 5 ? true : false;
         }
 
         /***********************

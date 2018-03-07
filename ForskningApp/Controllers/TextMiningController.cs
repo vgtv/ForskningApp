@@ -44,11 +44,33 @@ namespace ForskningApp.Controllers
 
                 textMining.removeLanguages(tokenizedTitles, englishSpeller);
 
-                textMining.removeStopWords(tokenizedTitles, stopWords);
-                textMining.stemTitles(tokenizedTitles, englishStemmer);
+                if(textMining.isActive(tokenizedTitles))
+                {
+                    textMining.removeStopWords(tokenizedTitles, stopWords);
+                    textMining.stemTitles(tokenizedTitles, englishStemmer);
 
-                var groupedWords = textMining.groupTitles(tokenizedTitles);
+                    var groupedWords = textMining.groupTitles(tokenizedTitles);
+
+                    textMining.saveWords(groupedWords);
+
+                }
+
+                
+              
+                
+
+                /*foreach (var w in wordCloud)
+                {
+                    Debug.WriteLine("TEXT MINER | word: " + w.Key + ", count: " + w.Count());
+                }*/
+
+                /*if (textMining.isActive(groupeWords))
+                {
+                    textMining.saveWords(groupeWords);
+                    textMining.saveWordCloud(groupeWords, cristinID);
+                }*/
             }
+
             return View();
         }
     }
