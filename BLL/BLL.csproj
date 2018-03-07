@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ForskningBLL.cs" />
+    <Compile Include="ISearchBLL.cs" />
     <Compile Include="ITextMiningBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchBLL.cs" />
     <Compile Include="TextMiningBLL.cs" />
   </ItemGroup>
   <ItemGroup>

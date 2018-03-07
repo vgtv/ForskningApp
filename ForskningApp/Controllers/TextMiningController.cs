@@ -13,6 +13,7 @@ namespace ForskningApp.Controllers
 {
     public class TextMiningController : Controller
     {
+        /*
         private ITextMiningBLL textMining;
 
         public TextMiningController()
@@ -22,6 +23,7 @@ namespace ForskningApp.Controllers
 
         public ActionResult Index()
         {
+            /*
             WordDictionary englishDictionary = new WordDictionary { DictionaryFile = "en-US.dic" };
             englishDictionary.Initialize();
             Spelling englishSpeller = new Spelling { Dictionary = englishDictionary };
@@ -74,9 +76,11 @@ namespace ForskningApp.Controllers
                     textMining.saveWords(groupeWords);
                     textMining.saveWordCloud(groupeWords, cristinID);
                 }*/
+                /*
             }
 
-            return View();
+            
         }
+*/
     }
 }

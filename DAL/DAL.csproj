@@ -139,10 +139,10 @@
     <Compile Include="forskning.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ForskningDAL.cs" />
     <Compile Include="institutter.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ISearchDAL.cs" />
     <Compile Include="ITextMiningDAL.cs" />
     <Compile Include="person.cs">
       <DependentUpon>DB.tt</DependentUpon>
@@ -154,6 +154,7 @@
     <Compile Include="rankinstitusjon.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="SearchDAL.cs" />
     <Compile Include="stopwords.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
