@@ -231,8 +231,13 @@ namespace DAL
          *
          * !Dette er noe som bør testes for å finne en balanse. Hva tenker dere?
          */
-        public bool isActive(List<IGrouping<string, string>> groupedWords)
+        public bool isActive(List<IGrouping<string, string>> groupedWords, int titleCount)
         {
+
+            if(titleCount < 2)
+            {
+                return false;
+            }
 
             // Eksempel
             Int32 count = 0;
@@ -250,7 +255,7 @@ namespace DAL
 
             if (count < 30)
             {
-                return false;
+                return false; 
             }
 
             return true;
