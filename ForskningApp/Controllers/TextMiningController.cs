@@ -47,20 +47,8 @@ namespace ForskningApp.Controllers
                 textMining.removeStopWords(tokenizedTitles, stopWords);
                 textMining.stemTitles(tokenizedTitles, englishStemmer);
 
-                var groupeWords = textMining.groupTitles(tokenizedTitles);
-
-                /*foreach (var w in wordCloud)
-                {
-                    Debug.WriteLine("TEXT MINER | word: " + w.Key + ", count: " + w.Count());
-                }*/
-
-                /*if (textMining.isActive(groupeWords))
-                {
-                    textMining.saveWords(groupeWords);
-                    textMining.saveWordCloud(groupeWords, cristinID);
-                }*/
+                var groupedWords = textMining.groupTitles(tokenizedTitles);
             }
-
             return View();
         }
     }

@@ -30,7 +30,7 @@ namespace BLL
 
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
 
-        bool isActive(List<IGrouping<string, string>> groupedWords);
+        bool isActive(List<IGrouping<string, string>> groupedWords, int countedTitles);
 
         List<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
 
