@@ -97,9 +97,9 @@ namespace BLL
         {
             return _textMiningDAL.saveWordCloud(groupedWords, cristinID);
         }
-        public bool isActive(List<IGrouping<string, string>> groupedWords)
+        public bool isActive(List<List<string>> tokenizedTitles)
         {
-            return _textMiningDAL.isActive(groupedWords);
+            return _textMiningDAL.isActive(tokenizedTitles);
         }
     }
 }

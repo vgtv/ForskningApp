@@ -44,11 +44,20 @@ namespace ForskningApp.Controllers
 
                 textMining.removeLanguages(tokenizedTitles, englishSpeller);
 
-                textMining.removeStopWords(tokenizedTitles, stopWords);
-                textMining.stemTitles(tokenizedTitles, englishStemmer);
+                if(textMining.isActive(tokenizedTitles))
+                {
+                    textMining.removeStopWords(tokenizedTitles, stopWords);
+                    textMining.stemTitles(tokenizedTitles, englishStemmer);
 
-                var groupeWords = textMining.groupTitles(tokenizedTitles);
-                textMining.isActive(groupeWords, titles);
+                    var groupedWords = textMining.groupTitles(tokenizedTitles);
+
+                    textMining.saveWords(groupedWords);
+
+                }
+
+                
+              
+                
 
                 /*foreach (var w in wordCloud)
                 {
