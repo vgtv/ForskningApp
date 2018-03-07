@@ -48,6 +48,7 @@ namespace ForskningApp.Controllers
                 textMining.stemTitles(tokenizedTitles, englishStemmer);
 
                 var groupeWords = textMining.groupTitles(tokenizedTitles);
+                textMining.isActive(groupeWords, titles);
 
                 /*foreach (var w in wordCloud)
                 {

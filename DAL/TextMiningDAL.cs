@@ -231,29 +231,24 @@ namespace DAL
          *
          * !Dette er noe som bør testes for å finne en balanse. Hva tenker dere?
          */
-        public bool isActive(List<IGrouping<string, string>> groupedWords)
+        public bool isActive(List<IGrouping<string, string>> groupedWords, List<string>titles)
         {
-
-            // Eksempel
             Int32 count = 0;
-            Int32 listSize = groupedWords.Count();
+            Int32 titleCount = titles.Count();
 
-            if (listSize < 10)
+            if (titleCount > 5)
             {
-                return false;
-            }
+                foreach (var words in groupedWords)
+                {
+                    count += words.Count();
+                }
 
-            foreach (var words in groupedWords)
-            {
-                count += words.Count();
+                if (count > 2)
+                {
+                    return true;
+                }
             }
-
-            if (count < 30)
-            {
-                return false;
-            }
-
-            return true;
+            return false; 
         }
 
         /***********************
