@@ -233,12 +233,6 @@ namespace DAL
          */
         public bool isActive(List<IGrouping<string, string>> groupedWords, int titleCount)
         {
-
-            if(titleCount < 2)
-            {
-                return false;
-            }
-
             // Eksempel
             Int32 count = 0;
             Int32 listSize = groupedWords.Count();

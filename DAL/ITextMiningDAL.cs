@@ -30,7 +30,7 @@ namespace DAL
 
         List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj);
 
-        bool isActive(List<IGrouping<string, string>> groupedWords, int countTitles);
+        bool isActive(List<IGrouping<string, string>> groupedWords);
         
         List<IGrouping<string, string>> groupTitles(List<List<string>> tokenizedTitles);
 
