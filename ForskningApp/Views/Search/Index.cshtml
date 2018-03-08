@@ -14,7 +14,7 @@
 
 
         <div class="form-horizontal">
-            <h4>Ordsky</h4>
+            <h4>AutoComplete</h4>
             <hr />
             <div>
                 <label>PersonSøk</label>
@@ -29,7 +29,7 @@
                             data: { search: $("#searchInput").val() },
                             success: function (data) {
                                 response($.map(data, function (item) {
-                                    return { label: item.Fornavn, value: item.Fornavn };
+                                    return { label: item.Navn, value: item.Navn };
                                 }));
                             },
                             error: function (xhr, status, error) {

@@ -23,8 +23,7 @@ namespace ForskningApp.Controllers
                 List<Models.Person> allSearch = db.person.Where(p => p.fornavn.Contains(search)).Select(p => new Models.Person
                 {
                     cristinID = p.cristinID,
-                    Fornavn = p.fornavn,
-                    Etternavn = p.etternavn
+                    Navn = p.fornavn + " " + p.etternavn,
                 }).ToList();
                 return new JsonResult { Data = allSearch, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

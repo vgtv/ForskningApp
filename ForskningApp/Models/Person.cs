@@ -8,7 +8,6 @@ namespace ForskningApp.Models
     public class Person
     {
         public string cristinID { get; set; }
-        public string Fornavn { get; set; }
-        public string Etternavn { get; set; }
+        public string Navn { get; set; }
     }
 }
