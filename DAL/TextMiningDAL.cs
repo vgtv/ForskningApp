@@ -3,6 +3,7 @@ using NetSpell.SpellChecker;
 using NetSpell.SpellChecker.Dictionary;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -19,21 +20,23 @@ namespace DAL
 
         /*
          * Finner alle personer sine cristinID'er
-         */ 
+         */
         public List<string> getCristinID()
         {
             using (var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).Take(10000).ToList();
+                return db.person.Select(p => p.cristinID).ToList();
+                // skip 987 orderby
             }
         }
 
-        /* Henter alle tittlene til en forsker
+        /* 
+         * Henter alle tittlene til en forsker
          * Når vi først spør: a.cristinID == cristinID finner vi alle radene personen forekommer i tabellen 'author'
          * Hver rad i 'author' har en forskningsID. Disse forskningsID'ene bruker vi videre i 'research' tabellen for
          * å så finne alle titlene i 'research' tabellen.
          * 
-         */ 
+         */
         public List<string> getTitles(string cristinID)
         {
             using (var db = new dbEntities())
@@ -45,9 +48,9 @@ namespace DAL
             }
         }
 
-       /*
-        * Henter alle stoppord fra database tabellen 'stopwords'
-        */ 
+        /*
+         * Henter alle stoppord fra database tabellen 'stopwords'
+         */
         public List<string> getStopWords()
         {
             using (var db = new dbEntities())
@@ -56,7 +59,7 @@ namespace DAL
             }
         }
 
-        // Kan slettes
+        // Kan slettes  
         public List<string> getTopCloudWords()
         {
             throw new NotImplementedException();
@@ -68,7 +71,7 @@ namespace DAL
 
         /*
          * Stemmer alle ord i en eller flere titler
-         */ 
+         */
         public List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj)
         {
             tokenizedTitles.ForEach(title => title.ForEach(word => stemmerObj.Stem(word)));
@@ -101,7 +104,7 @@ namespace DAL
 
         /*
          * Trimmer en tittel og returnerer denne
-         */ 
+         */
         public string removeSpecialCharacters(string str)
         {
             StringBuilder sb = new StringBuilder();
@@ -169,28 +172,7 @@ namespace DAL
                     percentage = (int)(0.5f + ((100f * wordCount) / length));
                 }
             }
-
-            if (percentage > 45)
-            {
-                /*Debug.WriteLine(percentage + "% is english: ");
-
-                foreach (var v in tokenizedTitle)
-                {
-                    Debug.Write(v + " ");
-                }
-                Debug.WriteLine(wordCount + ":" + length);*/
-                return true;
-            }
-            else
-            {
-                /*Debug.WriteLine(percentage + "% is english: ");
-                foreach (var v in tokenizedTitle)
-                {
-                    Debug.Write(v + " ");
-                }
-                Debug.WriteLine(wordCount + ":" + length);*/
-                return false;
-            }
+            return percentage > 45 ? true : false;
         }
 
         /* 
@@ -198,7 +180,6 @@ namespace DAL
          * 
          * @Implements isStopWord(string token, List<string> stopWords)
          */
-
         public List<List<string>> removeStopWords(List<List<string>> tokenizedTitles, List<string> stopWords)
         {
             tokenizedTitles.ForEach(title => title.ToList().ForEach(word =>
@@ -216,7 +197,6 @@ namespace DAL
         {
             foreach (var stopWord in stopWords)
             {
-
                 if (token == stopWord)
                 {
                     return true;
@@ -233,20 +213,17 @@ namespace DAL
          */
         public bool isActive(List<List<string>> tokenizedTitles)
         {
-            var count = tokenizedTitles.Count();
-
-            return count >= 5 ? true : false;
+            return tokenizedTitles.Count() > 3 ? true : false;
         }
 
         /***********************
          * Saving/Adding/Removing from Database
          ***********************/
 
-        
         /*
          * Lagrer nye - eller oppdaterer antall forekomster av et ord i tabellen 'word'
          * 
-         */ 
+         */
         public bool saveWords(List<IGrouping<string, string>> groupedWords)
         {
             using (var db = new dbEntities())
@@ -255,21 +232,33 @@ namespace DAL
                 {
                     foreach (var word in groupedWords)
                     {
-                        var foundWord = db.words.Where(w => word.Key == w.word).FirstOrDefault();
-                        if (foundWord == null)
+                        if (word.Key.Length > 1 && word.Key.Length < 30)
                         {
-                            db.words.Add(new words { word = word.Key, count = word.Count() });
-                        }
-                        else
-                        {
-                            foundWord.count += word.Count();
+                            var foundWord = db.words.Where(w => word.Key == w.word).FirstOrDefault();
+                            if (foundWord == null)
+                            {
+                                db.words.Add(new words { word = word.Key, count = word.Count() });
+                            }
+                            else
+                            {
+                                foundWord.count += word.Count();
+                            }
                         }
                     }
                     db.SaveChanges();
                 }
-                catch (Exception e)
+                catch (DbEntityValidationException e)
                 {
-                    Debug.WriteLine(e.Message.ToString());
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
                     return false;
                 }
                 return true;
@@ -277,14 +266,16 @@ namespace DAL
         }
 
         /*
-         * Lagrer ordskyen til en person i tabellen 'wordsky'
-         * Key er et ord fra 'word' tabellen
+         * Lagrer ordskyen til en person i tabellen 'wordcloud'
+         * Key er en id til et ord fra 'word' tabellen
+         * MÅ IKKE MISTOLKES MED KEY I GROUPING (ER IKKE DET SAMME)
          * 
          * cristinID | key | count
          * 10050     | 2   | 20
          * 10050     | 100 | 3
          */
-        public bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID)
+
+        public bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID, short totalTitles)
         {
             using (var db = new dbEntities())
             {
@@ -292,14 +283,27 @@ namespace DAL
                 {
                     foreach (var word in groupedWords)
                     {
-                        Int32 foundWord = db.words.Where(w => word.Key == w.word).Select(w => w.key).FirstOrDefault();
-                        db.wordsky.Add(new wordsky { cristinID = cristinID, key = foundWord, count = (short)word.Count() });
+                        Int32 foundWordKey = db.words.Where(w => word.Key == w.word).Select(w => w.key).FirstOrDefault();
+                        db.wordcloud.Add(new wordcloud { cristinID = cristinID, key = foundWordKey, count = (short)word.Count() });
                     }
+
+                    db.titles.Add(new titles { cristinID = cristinID, titlesCount = totalTitles });
+
                     db.SaveChanges();
                 }
-                catch (Exception e)
+
+                catch (DbEntityValidationException e)
                 {
-                    Debug.WriteLine(e.Message.ToString());
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
                     return false;
                 }
                 return true;
@@ -308,7 +312,7 @@ namespace DAL
 
         /*
          * Legger til et eller flere stopp ord fra databasen
-         * -    Sjekker om stoppordet eksisterer først
+         * Sjekker om stoppordet eksisterer først
          */
         public bool addStopsWordsDB(List<string> stopWords)
         {
@@ -327,7 +331,7 @@ namespace DAL
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine(e.Message.ToString());
+                    Debug.WriteLine("An error has occured while adding: " + e.Message.ToString());
                     return false;
                 }
                 return true;
@@ -356,7 +360,7 @@ namespace DAL
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine(e.Message.ToString());
+                    Debug.WriteLine("An error has occured while removing: " + e.Message.ToString());
                     return false;
                 }
                 return true;

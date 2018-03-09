@@ -36,7 +36,7 @@ namespace DAL
 
         bool saveWords(List<IGrouping<string, string>> groupedWords);
 
-        bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID);
+        bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID, short totalTitles);
 
         List<string> getTopCloudWords();
 

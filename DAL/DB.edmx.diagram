@@ -29,17 +29,19 @@
         <EntityTypeShape EntityType="dbModel.forfattere" Width="1.5" PointX="4.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.forskning" Width="1.5" PointX="0.5" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.institutter" Width="1.5" PointX="7" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.person" Width="1.5" PointX="5.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.person" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.rank" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.rankinstitusjon" Width="1.5" PointX="15" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.stopwords" Width="1.5" PointX="5.125" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.tidsskrift" Width="1.5" PointX="2.875" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.tilhorighet" Width="1.5" PointX="6.75" PointY="6.375" IsExpanded="true" />
         <AssociationConnector Association="dbModel.rank_FNcristinID" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="dbModel.words" Width="1.5" PointX="1.125" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.wordsky" Width="1.5" PointX="3.25" PointY="1.375" />
-        <AssociationConnector Association="dbModel.FK_cristinID_person" />
-        <AssociationConnector Association="dbModel.FK_Id_words" />
+        <EntityTypeShape EntityType="dbModel.words" Width="1.5" PointX="0.625" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.titles" Width="1.5" PointX="7.375" PointY="9.625" />
+        <EntityTypeShape EntityType="dbModel.wordcloud" Width="1.5" PointX="9.375" PointY="4.5" />
+        <AssociationConnector Association="dbModel.FK_cristinID" />
+        <AssociationConnector Association="dbModel.FK_person" />
+        <AssociationConnector Association="dbModel.FK_words" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

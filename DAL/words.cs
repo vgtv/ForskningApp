@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public words()
         {
-            this.wordsky = new HashSet<wordsky>();
+            this.wordcloud = new HashSet<wordcloud>();
         }
     
         public int key { get; set; }
@@ -25,6 +25,6 @@ namespace DAL
         public Nullable<int> count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wordsky> wordsky { get; set; }
+        public virtual ICollection<wordcloud> wordcloud { get; set; }
     }
 }

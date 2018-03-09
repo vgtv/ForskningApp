@@ -32,16 +32,15 @@ namespace ForskningApp.Controllers
 
             // textMining.addStopsWordsDB(new List<string> { "" });
 
+            Int32 counter = 0;
+            Int32 total = cristinIDList.Count();
+
             foreach (var cristinID in cristinIDList)
             {
-                Debug.WriteLine("-------- " + cristinID + " -----------");
-
                 var titles = textMining.getTitles(cristinID);
-
                 if (titles == null) continue;
-
+           
                 var tokenizedTitles = textMining.tokenizeTitles(titles);
-
                 textMining.removeLanguages(tokenizedTitles, englishSpeller);
 
                 if(textMining.isActive(tokenizedTitles))
@@ -51,31 +50,21 @@ namespace ForskningApp.Controllers
 
                     var groupedWords = textMining.groupTitles(tokenizedTitles);
 
-                    var saved = textMining.saveWords(groupedWords);
 
-                    if (saved)
-                    {
-                        Debug.WriteLine("-----------Save operation has succed-----------");
+                    if (textMining.saveWords(groupedWords)){                        
+                        Debug.WriteLine("Progress "+(++counter)+"/"+total);
                     }
                     else
                     {
-                        Debug.WriteLine("----------Error while svaing----------------");
+                        Debug.WriteLine("An unexpected error has occured" + cristinID);
+                        return View();
                     }
-
                 }
-
-                /*foreach (var w in wordCloud)
+                else
                 {
-                    Debug.WriteLine("TEXT MINER | word: " + w.Key + ", count: " + w.Count());
-                }*/
-
-                /*if (textMining.isActive(groupeWords))
-                {
-                    textMining.saveWords(groupeWords);
-                    textMining.saveWordCloud(groupeWords, cristinID);
-                }*/
+                    Debug.WriteLine("Progress "+(++counter) + "/" + total);
+                }
             }
-
             return View();
         }
     }

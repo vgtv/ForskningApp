@@ -48,7 +48,7 @@ namespace DAL
         public virtual DbSet<eierskap> ownership { get; set; }
         public virtual DbSet<forfattere> author { get; set; }
         public virtual DbSet<forskning> research { get; set; }
-        public virtual DbSet<institutter> institution { get; set; }
+        public virtual DbSet<institutter> institutter { get; set; }
         public virtual DbSet<person> person { get; set; }
         public virtual DbSet<rank> rank { get; set; }
         public virtual DbSet<rankinstitusjon> rankinstitusjon { get; set; }
@@ -56,6 +56,7 @@ namespace DAL
         public virtual DbSet<tidsskrift> journal { get; set; }
         public virtual DbSet<tilhorighet> tilhorighet { get; set; }
         public virtual DbSet<words> words { get; set; }
-        public virtual DbSet<wordsky> wordsky { get; set; }
+        public virtual DbSet<titles> titles { get; set; }
+        public virtual DbSet<wordcloud> wordcloud { get; set; }
     }
 }

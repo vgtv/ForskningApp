@@ -164,10 +164,13 @@
     <Compile Include="tilhorighet.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="words.cs">
+    <Compile Include="titles.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="wordsky.cs">
+    <Compile Include="wordcloud.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="words.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

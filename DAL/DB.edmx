@@ -389,15 +389,14 @@
           <Property Name="posisjon" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="aktiv" Type="smallint" Nullable="false" />
         </EntityType>
-        <EntityType Name="words">
+        <EntityType Name="titles">
           <Key>
-            <PropertyRef Name="key" />
+            <PropertyRef Name="cristinID" />
           </Key>
-          <Property Name="key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="word" Type="varchar" MaxLength="30" />
-          <Property Name="count" Type="int" />
+          <Property Name="cristinID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="titlesCount" Type="smallint" />
         </EntityType>
-        <EntityType Name="wordsky">
+        <EntityType Name="wordcloud">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -406,26 +405,46 @@
           <Property Name="key" Type="int" />
           <Property Name="count" Type="smallint" />
         </EntityType>
-        <Association Name="FK_cristinID_person">
-          <End Role="person" Type="Self.person" Multiplicity="0..1" />
-          <End Role="wordsky" Type="Self.wordsky" Multiplicity="*" />
+        <EntityType Name="words">
+          <Key>
+            <PropertyRef Name="key" />
+          </Key>
+          <Property Name="key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="word" Type="varchar" MaxLength="30" />
+          <Property Name="count" Type="int" />
+        </EntityType>
+        <Association Name="FK_cristinID">
+          <End Role="person" Type="Self.person" Multiplicity="1" />
+          <End Role="titles" Type="Self.titles" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="person">
               <PropertyRef Name="cristinID" />
             </Principal>
-            <Dependent Role="wordsky">
+            <Dependent Role="titles">
               <PropertyRef Name="cristinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Id_words">
+        <Association Name="FK_person">
+          <End Role="person" Type="Self.person" Multiplicity="0..1" />
+          <End Role="wordcloud" Type="Self.wordcloud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="cristinID" />
+            </Principal>
+            <Dependent Role="wordcloud">
+              <PropertyRef Name="cristinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_words">
           <End Role="words" Type="Self.words" Multiplicity="0..1" />
-          <End Role="wordsky" Type="Self.wordsky" Multiplicity="*" />
+          <End Role="wordcloud" Type="Self.wordcloud" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="words">
               <PropertyRef Name="key" />
             </Principal>
-            <Dependent Role="wordsky">
+            <Dependent Role="wordcloud">
               <PropertyRef Name="key" />
             </Dependent>
           </ReferentialConstraint>
@@ -473,15 +492,20 @@
           <EntitySet Name="stopwords" EntityType="Self.stopwords" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="tidsskrift" EntityType="Self.tidsskrift" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="tilhorighet" EntityType="Self.tilhorighet" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="titles" EntityType="Self.titles" Schema="forskningsresultater" store:Type="Tables" />
+          <EntitySet Name="wordcloud" EntityType="Self.wordcloud" Schema="forskningsresultater" store:Type="Tables" />
           <EntitySet Name="words" EntityType="Self.words" Schema="forskningsresultater" store:Type="Tables" />
-          <EntitySet Name="wordsky" EntityType="Self.wordsky" Schema="forskningsresultater" store:Type="Tables" />
-          <AssociationSet Name="FK_cristinID_person" Association="Self.FK_cristinID_person">
+          <AssociationSet Name="FK_cristinID" Association="Self.FK_cristinID">
             <End Role="person" EntitySet="person" />
-            <End Role="wordsky" EntitySet="wordsky" />
+            <End Role="titles" EntitySet="titles" />
           </AssociationSet>
-          <AssociationSet Name="FK_Id_words" Association="Self.FK_Id_words">
+          <AssociationSet Name="FK_person" Association="Self.FK_person">
+            <End Role="person" EntitySet="person" />
+            <End Role="wordcloud" EntitySet="wordcloud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_words" Association="Self.FK_words">
             <End Role="words" EntitySet="words" />
-            <End Role="wordsky" EntitySet="wordsky" />
+            <End Role="wordcloud" EntitySet="wordcloud" />
           </AssociationSet>
           <AssociationSet Name="rank$FNcristinID" Association="Self.rank$FNcristinID">
             <End Role="person" EntitySet="person" />
@@ -822,7 +846,8 @@
           <Property Name="fornavn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="etternavn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="rank" Relationship="Self.rank_FNcristinID" FromRole="person" ToRole="rank" />
-          <NavigationProperty Name="wordsky" Relationship="dbModel.FK_cristinID_person" FromRole="person" ToRole="wordsky" />
+          <NavigationProperty Name="titles" Relationship="dbModel.FK_cristinID" FromRole="person" ToRole="titles" />
+          <NavigationProperty Name="wordcloud" Relationship="dbModel.FK_person" FromRole="person" ToRole="wordcloud" />
         </EntityType>
         <EntityType Name="rank">
           <Key>
@@ -927,14 +952,19 @@
             <End Role="rank" EntitySet="rank" />
           </AssociationSet>
           <EntitySet Name="words" EntityType="dbModel.words" />
-          <EntitySet Name="wordsky" EntityType="dbModel.wordsky" />
-          <AssociationSet Name="FK_cristinID_person" Association="dbModel.FK_cristinID_person">
+          <EntitySet Name="titles" EntityType="dbModel.titles" />
+          <EntitySet Name="wordcloud" EntityType="dbModel.wordcloud" />
+          <AssociationSet Name="FK_cristinID" Association="dbModel.FK_cristinID">
             <End Role="person" EntitySet="person" />
-            <End Role="wordsky" EntitySet="wordsky" />
+            <End Role="titles" EntitySet="titles" />
           </AssociationSet>
-          <AssociationSet Name="FK_Id_words" Association="dbModel.FK_Id_words">
+          <AssociationSet Name="FK_person" Association="dbModel.FK_person">
+            <End Role="person" EntitySet="person" />
+            <End Role="wordcloud" EntitySet="wordcloud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_words" Association="dbModel.FK_words">
             <End Role="words" EntitySet="words" />
-            <End Role="wordsky" EntitySet="wordsky" />
+            <End Role="wordcloud" EntitySet="wordcloud" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="words">
@@ -944,9 +974,17 @@
           <Property Name="key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="word" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="count" Type="Int32" />
-          <NavigationProperty Name="wordsky" Relationship="dbModel.FK_Id_words" FromRole="words" ToRole="wordsky" />
+          <NavigationProperty Name="wordcloud" Relationship="dbModel.FK_words" FromRole="words" ToRole="wordcloud" />
         </EntityType>
-        <EntityType Name="wordsky">
+        <EntityType Name="titles">
+          <Key>
+            <PropertyRef Name="cristinID" />
+          </Key>
+          <Property Name="cristinID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="titlesCount" Type="Int16" />
+          <NavigationProperty Name="person" Relationship="dbModel.FK_cristinID" FromRole="titles" ToRole="person" />
+        </EntityType>
+        <EntityType Name="wordcloud">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -954,29 +992,41 @@
           <Property Name="cristinID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="key" Type="Int32" />
           <Property Name="count" Type="Int16" />
-          <NavigationProperty Name="person" Relationship="dbModel.FK_cristinID_person" FromRole="wordsky" ToRole="person" />
-          <NavigationProperty Name="words" Relationship="dbModel.FK_Id_words" FromRole="wordsky" ToRole="words" />
+          <NavigationProperty Name="person" Relationship="dbModel.FK_person" FromRole="wordcloud" ToRole="person" />
+          <NavigationProperty Name="words" Relationship="dbModel.FK_words" FromRole="wordcloud" ToRole="words" />
         </EntityType>
-        <Association Name="FK_cristinID_person">
-          <End Type="dbModel.person" Role="person" Multiplicity="0..1" />
-          <End Type="dbModel.wordsky" Role="wordsky" Multiplicity="*" />
+        <Association Name="FK_cristinID">
+          <End Type="dbModel.person" Role="person" Multiplicity="1" />
+          <End Type="dbModel.titles" Role="titles" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="person">
               <PropertyRef Name="cristinID" />
             </Principal>
-            <Dependent Role="wordsky">
+            <Dependent Role="titles">
               <PropertyRef Name="cristinID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Id_words">
+        <Association Name="FK_person">
+          <End Type="dbModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="dbModel.wordcloud" Role="wordcloud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="cristinID" />
+            </Principal>
+            <Dependent Role="wordcloud">
+              <PropertyRef Name="cristinID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_words">
           <End Type="dbModel.words" Role="words" Multiplicity="0..1" />
-          <End Type="dbModel.wordsky" Role="wordsky" Multiplicity="*" />
+          <End Type="dbModel.wordcloud" Role="wordcloud" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="words">
               <PropertyRef Name="key" />
             </Principal>
-            <Dependent Role="wordsky">
+            <Dependent Role="wordcloud">
               <PropertyRef Name="key" />
             </Dependent>
           </ReferentialConstraint>
@@ -1410,9 +1460,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="wordsky">
-            <EntityTypeMapping TypeName="dbModel.wordsky">
-              <MappingFragment StoreEntitySet="wordsky">
+          <EntitySetMapping Name="titles">
+            <EntityTypeMapping TypeName="dbModel.titles">
+              <MappingFragment StoreEntitySet="titles">
+                <ScalarProperty Name="titlesCount" ColumnName="titlesCount" />
+                <ScalarProperty Name="cristinID" ColumnName="cristinID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wordcloud">
+            <EntityTypeMapping TypeName="dbModel.wordcloud">
+              <MappingFragment StoreEntitySet="wordcloud">
                 <ScalarProperty Name="count" ColumnName="count" />
                 <ScalarProperty Name="key" ColumnName="key" />
                 <ScalarProperty Name="cristinID" ColumnName="cristinID" />
