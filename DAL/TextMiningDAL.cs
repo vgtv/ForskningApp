@@ -274,7 +274,6 @@ namespace DAL
          * 10050     | 2   | 20
          * 10050     | 100 | 3
          */
-
         public bool saveWordCloud(List<IGrouping<string, string>> groupedWords, string cristinID, short totalTitles)
         {
             using (var db = new dbEntities())
@@ -288,7 +287,6 @@ namespace DAL
                     }
 
                     db.titles.Add(new titles { cristinID = cristinID, titlesCount = totalTitles });
-
                     db.SaveChanges();
                 }
 

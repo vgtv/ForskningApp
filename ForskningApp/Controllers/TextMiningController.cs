@@ -52,17 +52,17 @@ namespace ForskningApp.Controllers
 
 
                     if (textMining.saveWords(groupedWords)){                        
-                        Debug.WriteLine("Progress "+(++counter)+"/"+total);
+                        Debug.WriteLine("Progress " + (++counter) + "/" + total);
                     }
                     else
                     {
-                        Debug.WriteLine("An unexpected error has occured" + cristinID);
+                        Debug.WriteLine("An unexpected error has occured: " + cristinID);
                         return View();
                     }
                 }
                 else
                 {
-                    Debug.WriteLine("Progress "+(++counter) + "/" + total);
+                    Debug.WriteLine("Progress " + (++counter) + "/" + total);
                 }
             }
             return View();
