@@ -25,7 +25,7 @@ namespace DAL
         {
             using (var db = new dbEntities())
             {
-                return db.person.Select(p => p.cristinID).ToList();
+                return db.person.Select(p => p.cristinID).Take(200).ToList();
                 // skip 987 orderby
             }
         }
@@ -74,7 +74,13 @@ namespace DAL
          */
         public List<List<string>> stemTitles(List<List<string>> tokenizedTitles, EnglishStemmer stemmerObj)
         {
-            tokenizedTitles.ForEach(title => title.ForEach(word => stemmerObj.Stem(word)));
+            for (int i = 0; i < tokenizedTitles.Count; i++)
+            {
+                for (int j = 0; j < tokenizedTitles[i].Count; j++)
+                {
+                    tokenizedTitles[i][j] = stemmerObj.Stem(tokenizedTitles[i][j]);
+                }
+            }
             return tokenizedTitles;
         }
 
@@ -145,10 +151,7 @@ namespace DAL
         {
             foreach (var titles in tokenizedTitles.ToList())
             {
-                if (!isEnglish(titles, spelling))
-                {
-                    tokenizedTitles.Remove(titles);
-                }
+                if (!isEnglish(titles, spelling)) tokenizedTitles.Remove(titles);
             }
             return tokenizedTitles;
         }
@@ -172,7 +175,7 @@ namespace DAL
                     percentage = (int)(0.5f + ((100f * wordCount) / length));
                 }
             }
-            return percentage > 45 ? true : false;
+            return percentage > 51 ? true : false;
         }
 
         /* 
@@ -186,7 +189,6 @@ namespace DAL
             {
                 if (isStopWord(word, stopWords)) title.Remove(word);
             }));
-
             return tokenizedTitles;
         }
 
@@ -198,9 +200,7 @@ namespace DAL
             foreach (var stopWord in stopWords)
             {
                 if (token == stopWord)
-                {
                     return true;
-                }
             }
             return false;
         }
@@ -222,7 +222,6 @@ namespace DAL
 
         /*
          * Lagrer nye - eller oppdaterer antall forekomster av et ord i tabellen 'word'
-         * 
          */
         public bool saveWords(List<IGrouping<string, string>> groupedWords)
         {
@@ -282,11 +281,15 @@ namespace DAL
                 {
                     foreach (var word in groupedWords)
                     {
-                        Int32 foundWordKey = db.words.Where(w => word.Key == w.word).Select(w => w.key).FirstOrDefault();
-                        db.wordcloud.Add(new wordcloud { cristinID = cristinID, key = foundWordKey, count = (short)word.Count() });
-                    }
+                        //int foundWordKey = db.words.Where(w => word.Key == w.word).Select(w => w.key).FirstOrDefault();
 
-                    db.titles.Add(new titles { cristinID = cristinID, titlesCount = totalTitles });
+                        words w1 = db.words.Where(w => w.word == word.Key).FirstOrDefault();
+                        person p1 = db.person.Where(c => c.cristinID == cristinID).FirstOrDefault();
+
+                        db.wordcloud.Add(new wordcloud { person = p1, words = w1, count = (short)word.Count() });
+                    }
+      
+                   // db.titles.Add(new titles { cristinID = cristinID, titlesCount = totalTitles });
                     db.SaveChanges();
                 }
 

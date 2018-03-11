@@ -39,7 +39,7 @@ namespace ForskningApp.Controllers
             {
                 var titles = textMining.getTitles(cristinID);
                 if (titles == null) continue;
-           
+
                 var tokenizedTitles = textMining.tokenizeTitles(titles);
                 textMining.removeLanguages(tokenizedTitles, englishSpeller);
 
@@ -48,23 +48,32 @@ namespace ForskningApp.Controllers
                     textMining.removeStopWords(tokenizedTitles, stopWords);
                     textMining.stemTitles(tokenizedTitles, englishStemmer);
 
+                    short totalTitles = (short)tokenizedTitles.Count();
+
                     var groupedWords = textMining.groupTitles(tokenizedTitles);
 
+                    if (textMining.saveWordCloud(groupedWords,cristinID, totalTitles))
+                    {
+                        Debug.WriteLine("Saving: ("+ (++counter) + "/" + total + ")");
+                    }
 
+                    /*
                     if (textMining.saveWords(groupedWords)){                        
-                        Debug.WriteLine("Progress " + (++counter) + "/" + total);
+                        Debug.WriteLine("Saving: (" + (++counter) + "/" + total + ")");
                     }
                     else
                     {
                         Debug.WriteLine("An unexpected error has occured: " + cristinID);
                         return View();
                     }
+                    */
                 }
                 else
                 {
-                    Debug.WriteLine("Progress " + (++counter) + "/" + total);
+                    Debug.WriteLine("Ignoring: (" + (++counter) + "/" + total + ")");
                 }
             }
+            Debug.WriteLine("Text Mining Complete");
             return View();
         }
     }
