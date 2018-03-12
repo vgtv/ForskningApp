@@ -22,7 +22,7 @@ namespace DAL
     
         public int key { get; set; }
         public string word { get; set; }
-        public Nullable<int> count { get; set; }
+        public int count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wordcloud> wordcloud { get; set; }

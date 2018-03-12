@@ -45,7 +45,7 @@ namespace DAL
         public virtual DbSet<aarligranking2014> aarligranking2014 { get; set; }
         public virtual DbSet<aarligranking2015> aarligranking2015 { get; set; }
         public virtual DbSet<aarligranking2016> aarligranking2016 { get; set; }
-        public virtual DbSet<eierskap> ownership { get; set; }
+        public virtual DbSet<eierskap> eierskap { get; set; }
         public virtual DbSet<forfattere> author { get; set; }
         public virtual DbSet<forskning> research { get; set; }
         public virtual DbSet<institutter> institutter { get; set; }
@@ -53,7 +53,7 @@ namespace DAL
         public virtual DbSet<rank> rank { get; set; }
         public virtual DbSet<rankinstitusjon> rankinstitusjon { get; set; }
         public virtual DbSet<stopwords> stopwords { get; set; }
-        public virtual DbSet<tidsskrift> journal { get; set; }
+        public virtual DbSet<tidsskrift> tidsskrift { get; set; }
         public virtual DbSet<tilhorighet> tilhorighet { get; set; }
         public virtual DbSet<words> words { get; set; }
         public virtual DbSet<titles> titles { get; set; }

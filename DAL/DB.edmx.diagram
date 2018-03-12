@@ -38,11 +38,11 @@
         <AssociationConnector Association="dbModel.rank_FNcristinID" ManuallyRouted="false" />
         <EntityTypeShape EntityType="dbModel.words" Width="1.5" PointX="0.625" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbModel.titles" Width="1.5" PointX="7.375" PointY="9.625" />
-        <EntityTypeShape EntityType="dbModel.wordcloud" Width="1.5" PointX="9.375" PointY="4.5" />
         <AssociationConnector Association="dbModel.FK_cristinID" />
+        <EntityTypeShape EntityType="dbModel.wordcloud" Width="1.5" PointX="5.5" PointY="1.625" />
         <AssociationConnector Association="dbModel.FK_person" />
         <AssociationConnector Association="dbModel.FK_words" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

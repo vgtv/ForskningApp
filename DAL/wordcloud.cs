@@ -14,9 +14,8 @@ namespace DAL
     
     public partial class wordcloud
     {
-        public int Id { get; set; }
         public string cristinID { get; set; }
-        public Nullable<int> key { get; set; }
+        public int key { get; set; }
         public Nullable<short> count { get; set; }
     
         public virtual person person { get; set; }
