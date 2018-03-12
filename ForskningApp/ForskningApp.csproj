@@ -300,6 +300,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\TextMining\Index.cshtml" />
+    <Content Include="Views\TextMining\StartTextMining.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

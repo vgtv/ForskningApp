@@ -22,6 +22,11 @@ namespace ForskningApp.Controllers
 
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult StartTextMining()
+        {
             WordDictionary englishDictionary = new WordDictionary { DictionaryFile = "en-US.dic" };
             englishDictionary.Initialize();
             Spelling englishSpeller = new Spelling { Dictionary = englishDictionary };
@@ -30,7 +35,10 @@ namespace ForskningApp.Controllers
             var cristinIDList = textMining.getCristinID();
             var stopWords = textMining.getStopWords();
 
-            // textMining.addStopsWordsDB(new List<string> { "" });
+            var addedStopWords = new List<string> { "studi", "base", "analysi", "effect", "activ", "high",
+            "factor", "year", "express", "cross", "experi", "level", "assess", "case", "cohort", "impact",
+            "term", "low", "process", "long", "depend", "perform", "type", "increas", "outcom", "evalu",
+            "top", "larg", "comparison", "section", "central", "person", "problem","rate", "general" };
 
             Int32 counter = 0;
             Int32 total = cristinIDList.Count();
@@ -43,34 +51,28 @@ namespace ForskningApp.Controllers
                 var tokenizedTitles = textMining.tokenizeTitles(titles);
                 textMining.removeLanguages(tokenizedTitles, englishSpeller);
 
-                if(textMining.isActive(tokenizedTitles))
+                if (textMining.isActive(tokenizedTitles))
                 {
                     textMining.removeStopWords(tokenizedTitles, stopWords);
                     textMining.stemTitles(tokenizedTitles, englishStemmer);
+                    textMining.removeStopWords(tokenizedTitles, addedStopWords); // sikrer at de stemmete ordene også fjernes
 
                     short totalTitles = (short)tokenizedTitles.Count();
-
                     var groupedWords = textMining.groupTitles(tokenizedTitles);
 
-                    if (textMining.saveWordCloud(groupedWords,cristinID, totalTitles))
+                    if (textMining.saveWordCloud(groupedWords, cristinID, totalTitles))
                     {
-                        Debug.WriteLine("Saving: ("+ (++counter) + "/" + total + ")");
-                    }
-
-                    /*
-                    if (textMining.saveWords(groupedWords)){                        
                         Debug.WriteLine("Saving: (" + (++counter) + "/" + total + ")");
                     }
                     else
                     {
-                        Debug.WriteLine("An unexpected error has occured: " + cristinID);
+                        Debug.WriteLine("An unexpected error has occured at cristinId: " + cristinID);
                         return View();
                     }
-                    */
                 }
                 else
                 {
-                    Debug.WriteLine("Ignoring: (" + (++counter) + "/" + total + ")");
+                    Debug.WriteLine("Saving: (" + (++counter) + "/" + total + ")");
                 }
             }
             Debug.WriteLine("Text Mining Complete");
