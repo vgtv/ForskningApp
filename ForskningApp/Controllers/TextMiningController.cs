@@ -13,6 +13,7 @@ namespace ForskningApp.Controllers
 {
     public class TextMiningController : Controller
     {
+        /*
         private ITextMiningBLL textMining;
 
         public TextMiningController()
@@ -66,7 +67,7 @@ namespace ForskningApp.Controllers
                         Debug.WriteLine("An unexpected error has occured: " + cristinID);
                         return View();
                     }
-                    */
+                   
                 }
                 else
                 {
@@ -76,5 +77,6 @@ namespace ForskningApp.Controllers
             Debug.WriteLine("Text Mining Complete");
             return View();
         }
+        */
     }
 }

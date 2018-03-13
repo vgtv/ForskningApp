@@ -29,11 +29,7 @@ namespace ForskningApp.Controllers
         // for showing in react JS component
         public JsonResult getmessage()
         {
-            return new JsonResult
-            {
-                Data = "Hello World. I am from server-side",
-                JsonRequestBehavior = JsonRequestBehaviour.AllowGet
-            };
+            return new JsonResult { Data = "Hello World. I am from server-side", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }
 }
