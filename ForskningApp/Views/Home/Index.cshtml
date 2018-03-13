@@ -1,42 +1,43 @@
-﻿@model ForskningApp.Models.Person
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Hello World-React JS</h2>
+@*HTML  for show reactjs component*@
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Ordsky</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.fornavn, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fornavn, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fornavn, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div id="helloworldcontainer"></div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.etternavn, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.etternavn, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.etternavn, "", new { @class = "text-danger" })
-            </div>
-        </div>
+@*Jquery library*@
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+@*ReactJS Library*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+@*JSX converter(JSX to native javascript)*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Søk" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-@Html.Raw(ViewBag.Liste);
-
+@*Here we will create our first React JS components*@
+<script type="text/javascript">
+    var HelloWorldComponent = React.createClass({
+        getInitialState : function() {
+            return {
+                serverMessage : ''
+            };
+        },
+        componentDidMount : function() {
+            //fetch data from server
+            $.get('/home/getmessage', function(result) {
+            if (this.isMounted) {
+                this.setState({
+                    serverMessage : result
+                    })
+                }
+            }.bind(this));
+        },
+        Render : function() {
+            return ("<h1>{this.state.serverMessage}</h1>")
+        }
+    });
+    ReactDOM.render(
+    "<HelloWorldComponent />",
+    document.getElementById("helloworldcontainer"));
+</script>
