@@ -1,4 +1,6 @@
-﻿using BLL;
+﻿/*
+
+using BLL;
 using Iveonik.Stemmers;
 using NetSpell.SpellChecker;
 using NetSpell.SpellChecker.Dictionary;
@@ -66,7 +68,7 @@ namespace ForskningApp.Controllers
                         Debug.WriteLine("An unexpected error has occured: " + cristinID);
                         return View();
                     }
-                    */
+                    
                 }
                 else
                 {
@@ -78,3 +80,5 @@ namespace ForskningApp.Controllers
         }
     }
 }
+
+*/
