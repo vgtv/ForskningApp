@@ -1,0 +1,26 @@
+{
+  "name": "forskningseact",
+  "version": "1.0.0",
+  "description": "React for project Forskningsapp",
+  "main": "app.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "webpack": "webpack-cli",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robin Pedersen",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  }
+}

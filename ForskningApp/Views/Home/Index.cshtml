@@ -1,43 +1,10 @@
 ﻿@{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hello World-React JS</h2>
-@*HTML  for show reactjs component*@
+<div id="test"></div>
 
-<div id="helloworldcontainer"></div>
-
-@*Jquery library*@
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-@*ReactJS Library*@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
-@*JSX converter(JSX to native javascript)*@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-
-@*Here we will create our first React JS components*@
-<script type="text/javascript">
-    var HelloWorldComponent = React.createClass({
-        getInitialState : function() {
-            return {
-                serverMessage : ''
-            };
-        },
-        componentDidMount : function() {
-            //fetch data from server
-            $.get('/home/getmessage', function(result) {
-            if (this.isMounted) {
-                this.setState({
-                    serverMessage : result
-                    })
-                }
-            }.bind(this));
-        },
-        Render : function() {
-            return ("<h1>{this.state.serverMessage}</h1>")
-        }
-    });
-    ReactDOM.render(
-    "<HelloWorldComponent />",
-    document.getElementById("helloworldcontainer"));
-</script>
+@section scripts {
+<script src="~/Scripts/react/dist/bundle.js"></script>
+    }
