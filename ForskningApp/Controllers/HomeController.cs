@@ -18,9 +18,20 @@ namespace ForskningApp.Controllers
 {
     public class HomeController : Controller
     {
-       public ActionResult Index()
+        public ActionResult Index()
         {
             return View();
+        }
+
+        // add another MVC action for return JSON data
+        // for showing in react JS component
+        public JsonResult getmessage()
+        {
+            return new JsonResult
+            {
+                Data = "Hello World. I am from server-side",
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
     }
 }
